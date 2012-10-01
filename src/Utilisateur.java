@@ -1,6 +1,6 @@
 
 /**
- * @author Tony
+ * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  *represente l'utilisateur
  */
 public class Utilisateur {
@@ -29,7 +29,14 @@ public class Utilisateur {
 		this.rep.nom = "repertoire par defaut";
 		this.rep.nbcont = 0;
 	}
-	
+
+	/**
+	 * @param nomrep cree un repertoire de nom nomrep
+	 */
+	public void CreeRep(String nomrep)
+	{
+		this.rep=new Repertoire(nomrep);
+	}
 	
 
 }

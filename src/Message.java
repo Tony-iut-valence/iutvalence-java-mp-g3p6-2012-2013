@@ -2,7 +2,7 @@ import java.util.Date;
 
 
 /**
- * @author Tony
+ * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  *represente un message
  */
 public class Message {

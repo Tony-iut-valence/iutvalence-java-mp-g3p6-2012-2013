@@ -1,6 +1,6 @@
 
 /**
- * @author Tony
+ * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  *represente un contact
  */
 public class Contact {
