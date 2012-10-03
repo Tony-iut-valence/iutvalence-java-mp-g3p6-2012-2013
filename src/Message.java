@@ -8,33 +8,39 @@ import java.util.Date;
 public class Message {
 	
 	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ? 
-	// FIXME réfléchir à la visibilité de l'attribut
+	
 	/**
 	 * contenu du message
 	 */
-	public String contenu;
+	protected String contenu;
 
 	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ?
-	// FIXME réfléchir à la visibilité de l'attribut
+	
 	// FIXME constantes ?
+	
+	protected enum etat{
+		ENCONSTRUCTION,
+		ENVOYE,
+		LU;
+	}
+	
 	/**
 	 * etat de reception
 	 */
-	public int etat;
-	
+	protected etat etat;
 	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ?
-	// FIXME réfléchir à la visibilité de l'attribut
+	
 	/**
 	 * date de fin de creation du message
 	 */
-	public Date date;
+	protected Date date;
 	
 	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ?
-	// FIXME réfléchir à la visibilité de l'attribut
+	
 	/**
 	 * destination du message
 	 */
-	public String dest;
+	protected String dest;
 	
 
 	/**
@@ -45,7 +51,7 @@ public class Message {
 	{
 		this.contenu = contenu;
 		this.dest = dest;
-		this.etat = 0;
+		this.etat=ENCONSTRUCTION;
 		this.date = new Date();
 	}
 	

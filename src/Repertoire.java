@@ -6,24 +6,24 @@
 public class Repertoire {
 	
 	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ?
-	// FIXME réfléchir à la visibilité de l'attribut
+	
 	/**
 	 * nom du repertoire
 	 */
-	public String nom;
+	protected String nom;
 	
 	
 	/**
 	 * tableau de contacts
 	 */
-	public Contact[] contacts;
+	protected Contact[] contacts;
 	
 	// FIXME renommer l'attribut
 	// FIXME réfléchir à la visibilité de l'attribut
 	/**
 	 * nombre de contacts
 	 */
-	public int nbcont;
+	protected int nbcont;
 	
 	// FIXME compléter le commentaire
 	/**
@@ -179,6 +179,7 @@ public class Repertoire {
 	/**
 	 * @param nom du contact a modifier
 	 * @param adrmac nouvelle adrmac du contact
+	 * 
 	 */
 	public void ModifieAdrContact(String nom,String adrmac)
 	{
