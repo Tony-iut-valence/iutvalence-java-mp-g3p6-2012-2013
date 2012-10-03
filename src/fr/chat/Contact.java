@@ -1,8 +1,9 @@
-// FIXME déplacer dans un paquetage
+package fr.chat;
 
-// FIXME détailler le commentaire
+
+
 /**
- * Represente un contact 
+ * class qui represente un contact 
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Contact {

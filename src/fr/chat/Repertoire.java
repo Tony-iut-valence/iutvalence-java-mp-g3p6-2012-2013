@@ -1,14 +1,23 @@
-// FIXME déplacer dans un paquetage
+package fr.chat;
 
-// FIXME détailler le commentaire
+
+
+
 /**
- *  Contient les contacts de l'utilisateur
+ *  class qui represente un repertoire -> tableau de conctats
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Repertoire {
 	
-	// FIXME la valeur de l'attribut peut-elle changer une fois le message créé ?
+	/**
+	 * valeur de retour d'adresse en cas d'erreur
+	 */
+	final static String ADR_ERREUR="00:00:00:00:00:00";
 	
+	/**
+	 * nombre maximum de contacts dans un repertoire
+	 */
+	final static int MAX_CONTACT=200;
 	/**
 	 * nom du repertoire
 	 */
@@ -18,46 +27,44 @@ public class Repertoire {
 	/**
 	 * tableau de contacts
 	 */
-	protected Contact[] contacts;
+	private Contact[] contacts;
 	
-	// FIXME renommer l'attribut
-	// FIXME réfléchir à la visibilité de l'attribut
+
 	/**
 	 * nombre de contacts
 	 */
-	protected int nbcont;
+	protected int nbContact;
 	
-	// FIXME compléter le commentaire
 	/**
 	 * @param nomrep
+	 * Constructeur de repertoire avec pour paramètre le nom du repertoire
 	 */
 	public Repertoire(String nomrep)
 	{
 		this.nom=nomrep;
-		this.nbcont=0;
+		this.nbContact=0;
+		this.contacts=new Contact[MAX_CONTACT];
 		
-		// FIXME initialiser tous les attributs
 	}
 	
 	
-	// FIXME compléter le commentaire
-	// FIXME respecter les conventions d'écriture
+	
 	/**
 	 * @param nom
 	 * @param adrmac
-	 * ajoute un contact dans le repertoire courant
+	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac
 	 */
-	public void AjouterContact(String nom,String adrmac)
+	public void ajouterContact(String nom,String adrmac)
 	{
 		Contact cont1,cont2;
 		int i=0;
-		this.nbcont=this.nbcont+1;
-		while((i<this.nbcont)&((this.contacts[i].nom).compareTo(nom)<0))
+		this.nbContact=this.nbContact+1;
+		while((i<this.nbContact)&((this.contacts[i].nom).compareTo(nom)<0))
 		{
 			i=i+1;
 			
 		}
-		if (i==this.nbcont)
+		if (i==this.nbContact)
 		{
 			this.contacts[i].nom=nom;
 			this.contacts[i].adrmac=adrmac;
@@ -76,7 +83,7 @@ public class Repertoire {
 				this.contacts[i].adrmac=adrmac;
 				i=i+1;
 	
-				while(i<=this.nbcont)
+				while(i<=this.nbContact)
 				{
 					cont2=this.contacts[i];
 					this.contacts[i]=cont1;
@@ -90,21 +97,20 @@ public class Repertoire {
 			
 	}
 	
-	// FIXME compléter le commentaire
-	// FIXME respecter les conventions d'écriture
-	
+
 	/**
 	 * @param nom
 	 * @return l'adresse mac correspondant au nom
+	 * recherche l'adresse correspondant au contact de nom nom
 	 */
-	public String RechercheAdrContact(String nom)
+	public String rechercheAdrContact(String nom)
 	{
 		int i=0;
-		while((i<=this.nbcont)&((this.contacts[i].nom).compareTo(nom)!=0))
+		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nbcont)
+		if(i>this.nbContact)
 		{
 			System.out.println("Ce contact n'existe pas.");
 		}
@@ -113,26 +119,25 @@ public class Repertoire {
 			return this.contacts[i].adrmac;
 		}
 		
-		// FIXME définir une constante
 		// FIXME remplacer par une exception
-		return "00:00:00:00:00:00";
+		return ADR_ERREUR;
 		
 	}
 	
-	// FIXME compléter le commentaire
-	// FIXME respecter les conventions d'écriture
+
 	/**
 	 * @param adrmac
 	 * @return le nom associe a l'adresse mac
+	 * recherche le nom du contact d'adresse adrmac
 	 */
-	public String RechercheNomContact(String adrmac)
+	public String rechercheNomContact(String adrmac)
 	{
 		int i=0;
-		while((i<=this.nbcont)&((this.contacts[i].adrmac).compareTo(adrmac)!=0))
+		while((i<=this.nbContact)&((this.contacts[i].adrmac).compareTo(adrmac)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nbcont)
+		if(i>this.nbContact)
 		{
 			System.out.println("Cette adresse mac est introuvable.");
 		}
@@ -144,21 +149,19 @@ public class Repertoire {
 		
 	}
 	
-	// FIXME compléter le commentaire
-	// FIXME respecter les conventions d'écriture
 	/**
 	 * @param nom
-	 * supprime le contact de nom nom
+	 * supprime le contact de nom nom tout en conservant l'ordre 
 	 */
-	public void SupprimeContact(String nom)
+	public void supprimeContact(String nom)
 	{
 		int i=0;
-		while((i<=this.nbcont)&((this.contacts[i].nom).compareTo(nom)!=0))
+		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
 		{
 			i=i+1;
 			
 		}
-		if (i>this.nbcont)
+		if (i>this.nbContact)
 		{
 			System.out.println("Ce contact n'existe pas introuvable.");
 
@@ -166,31 +169,31 @@ public class Repertoire {
 		else
 		{
 			
-			while(i<this.nbcont)
+			while(i<this.nbContact)
 			{
 				this.contacts[i]=this.contacts[i+1];
 				i=i+1;
 			}
-			this.nbcont=this.nbcont-1;
+			this.nbContact=this.nbContact-1;
 		}
 			
 	}
 	
-	// FIXME compléter le commentaire
-	// FIXME respecter les conventions d'écriture
+
 	/**
 	 * @param nom du contact a modifier
 	 * @param adrmac nouvelle adrmac du contact
+	 * remplace l'adresse mac du contact de nom nom par adrmac
 	 * 
 	 */
-	public void ModifieAdrContact(String nom,String adrmac)
+	public void modifieAdrContact(String nom,String adrmac)
 	{
 		int i=0;
-		while((i<=this.nbcont)&((this.contacts[i].nom).compareTo(nom)!=0))
+		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nbcont)
+		if(i>this.nbContact)
 		{
 			System.out.println("Ce contact n'existe pas.");
 		}
