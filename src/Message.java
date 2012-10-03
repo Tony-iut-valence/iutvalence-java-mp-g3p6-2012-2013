@@ -51,7 +51,7 @@ public class Message {
 	{
 		this.contenu = contenu;
 		this.dest = dest;
-		this.etat=ENCONSTRUCTION;
+	//	this.etat=ENCONSTRUCTION;
 		this.date = new Date();
 	}
 	
