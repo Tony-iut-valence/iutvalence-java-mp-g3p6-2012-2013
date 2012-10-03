@@ -1,3 +1,4 @@
+// FIXME déplacer dans un paquetage
 
 /**
  * Represente l'utilisateur

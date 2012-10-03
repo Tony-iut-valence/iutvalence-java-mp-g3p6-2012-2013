@@ -1,3 +1,5 @@
+// FIXME déplacer dans un paquetage
+
 // FIXME détailler le commentaire
 /**
  *  Contient les contacts de l'utilisateur
