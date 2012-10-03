@@ -1,3 +1,5 @@
+// FIXME déplacer dans un paquetage
+
 // FIXME détailler le commentaire
 /**
  * Represente un contact 
