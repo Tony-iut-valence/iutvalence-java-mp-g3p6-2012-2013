@@ -109,6 +109,12 @@ public class Repertoire {
 			
 	}
 	
+	
+	/**
+	 * @author chizatto
+	 *déclaration du type d'erreur de saisie
+	 */
+	public class SaisieIncorrectExeption extends Exception {}
 
 	// FIXME compléter le commentaire
 	/**
@@ -116,8 +122,9 @@ public class Repertoire {
 	 * @param nom
 	 * @return l'adresse mac correspondant au nom
 	 * 
+	 * @throws SaisieIncorrectExeption exeption soulevé si le contact n'est pas dans le tableau
 	 */
-	public String rechercheAdrContact(String nom)
+	public String rechercheAdrContact(String nom) throws SaisieIncorrectExeption
 	{
 		int i=0;
 		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
@@ -132,9 +139,8 @@ public class Repertoire {
 		{
 			return this.contacts[i].adrmac;
 		}
-		
-		// FIXME remplacer par une exception
-		return ADR_ERREUR;
+
+		throw new SaisieIncorrectExeption();
 		
 	}
 	
