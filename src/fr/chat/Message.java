@@ -29,7 +29,7 @@ public class Message {
 	 */
 	private final String dest;
 	
-
+	// FIME compléter le commentaire
 	/**
 	 * @param contenu
 	 * @param dest

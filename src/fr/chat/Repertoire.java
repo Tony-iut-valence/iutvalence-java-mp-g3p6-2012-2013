@@ -9,6 +9,9 @@ package fr.chat;
  */
 public class Repertoire {
 	
+	
+	// FIXME ne pas utiliser de valeur erreur, mais plutôt une référence nulle ou une exception
+	// FIXME visibilité ?
 	/**
 	 * valeur de retour d'adresse en cas d'erreur
 	 */
@@ -17,7 +20,10 @@ public class Repertoire {
 	/**
 	 * nombre maximum de contacts dans un repertoire
 	 */
+	// FIXME visibilité ?
+	// FIXME renommer la constante
 	final static int MAX_CONTACT=200;
+
 	/**
 	 * nom du repertoire
 	 */
@@ -33,11 +39,16 @@ public class Repertoire {
 	/**
 	 * nombre de contacts
 	 */
+	// FIXME pourquoi protected ?
+	// FIXME renommer l'attribut
 	protected int nbContact;
 	
+	
+	// FIXME compléter le commentaire
 	/**
-	 * @param nomrep
 	 * Constructeur de repertoire avec pour paramètre le nom du repertoire
+	 * @param nomrep
+	 * 
 	 */
 	public Repertoire(String nomrep)
 	{
@@ -48,11 +59,12 @@ public class Repertoire {
 	}
 	
 	
-	
+	// FIXME compléter le commentaire
 	/**
+	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac
 	 * @param nom
 	 * @param adrmac
-	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac
+	 * 
 	 */
 	public void ajouterContact(String nom,String adrmac)
 	{
@@ -98,10 +110,12 @@ public class Repertoire {
 	}
 	
 
+	// FIXME compléter le commentaire
 	/**
+	 * recherche l'adresse correspondant au contact de nom nom
 	 * @param nom
 	 * @return l'adresse mac correspondant au nom
-	 * recherche l'adresse correspondant au contact de nom nom
+	 * 
 	 */
 	public String rechercheAdrContact(String nom)
 	{
@@ -124,11 +138,12 @@ public class Repertoire {
 		
 	}
 	
-
+	// FIXME compléter le commentaire
 	/**
+	 * recherche le nom du contact d'adresse adrmac
 	 * @param adrmac
 	 * @return le nom associe a l'adresse mac
-	 * recherche le nom du contact d'adresse adrmac
+	 * 
 	 */
 	public String rechercheNomContact(String adrmac)
 	{
@@ -149,9 +164,11 @@ public class Repertoire {
 		
 	}
 	
+	// FIXME compléter le commentaire
 	/**
+	 * supprime le contact de nom nom tout en conservant l'ordre
 	 * @param nom
-	 * supprime le contact de nom nom tout en conservant l'ordre 
+	 *  
 	 */
 	public void supprimeContact(String nom)
 	{
@@ -180,10 +197,12 @@ public class Repertoire {
 	}
 	
 
+	// FIXME corriger le commentaire
 	/**
+	 * remplace l'adresse mac du contact de nom nom par adrmac
 	 * @param nom du contact a modifier
 	 * @param adrmac nouvelle adrmac du contact
-	 * remplace l'adresse mac du contact de nom nom par adrmac
+	 * 
 	 * 
 	 */
 	public void modifieAdrContact(String nom,String adrmac)

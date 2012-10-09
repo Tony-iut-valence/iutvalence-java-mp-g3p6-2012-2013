@@ -26,10 +26,13 @@ public class Utilisateur {
 	 */
 	private Repertoire rep;
 	
+	
+	// FIXME compléter le commentaire
 	/**
+	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe
 	 * @param nom
 	 * @param mdp
-	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe
+	 * 
 	 */
 	public Utilisateur(String nom,String mdp)
 	{
@@ -40,9 +43,11 @@ public class Utilisateur {
 	}
 
 
+	// FIXME compléter le commentaire
 	/**
-	 * @param nomrep
 	 * creation d'un nouveau repertoire vide pour l'utilisateur courant
+	 * @param nomrep
+	 * 
 	 */
 	public void creeRep(String nomrep)
 	{
