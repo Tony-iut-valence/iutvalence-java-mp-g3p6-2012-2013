@@ -7,13 +7,11 @@ package fr.iutvalence.java.projets.chat;
  */
 public class Contact {
 	
-	// FIXME pourquoi protected ? (à discuter en séance)
 	/**
 	 * nom du contact
 	 */
 	private String nomContact;
 
-	// FIXME pourquoi protected ? (à discuter en séance)
 	/**
 	 * adresse mac du contact
 	 */

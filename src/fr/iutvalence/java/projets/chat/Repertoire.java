@@ -11,18 +11,16 @@ public class Repertoire {
 	
 	
 	// FIXME ne pas utiliser de valeur erreur, mais plutôt une référence nulle ou une exception
-	// FIXME visibilité ?
 	/**
 	 * valeur de retour d'adresse en cas d'erreur
 	 */
-	final static String ADR_ERREUR="00:00:00:00:00:00";
+	private final static String ADR_ERREUR="00:00:00:00:00:00";
 	
 	/**
 	 * nombre maximum de contacts dans un repertoire
 	 */
-	// FIXME visibilité ?
 	// FIXME renommer la constante
-	final static int MAX_CONTACT=200;
+	private final static int MAX_CONTACT=200;
 
 	/**
 	 * nom du repertoire
@@ -39,9 +37,7 @@ public class Repertoire {
 	/**
 	 * nombre de contacts
 	 */
-	// FIXME pourquoi protected ?
-	// FIXME renommer l'attribut
-	protected int nombreDeContact;
+	private int nombreDeContact;
 	
 	
 	// FIXME compléter le commentaire
