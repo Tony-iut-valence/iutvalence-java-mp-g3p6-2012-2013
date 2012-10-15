@@ -14,8 +14,7 @@ public class Utilisateur {
 	/**
 	 * nom de l'utilisateur
 	 */
-	// FIXME le nom de l'utilisateur peut-il changer (à discuter)
-	private String nomUtilisateur;
+	private final String nomUtilisateur;
 	
 	/**
 	 * code de l'utilisateur
@@ -44,12 +43,17 @@ public class Utilisateur {
 	}
 
 
-	// FIXME autres méthodes ?
+	// FIXME(1/2 FIXED) autres méthodes ?
 	
-	// FIXME redéfinir la méthode toString, afin d'avoir une représentation texte de l'utilisateur
+	// FIXME(FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte de l'utilisateur
 		// FIXME écrire une application de test basique, créant un utilisateur et l'affichant
 
-	
+	public String toString()
+	{
+		String result="nom de l'utilisateur: "+this.nomUtilisateur+"\n";
+		result=result+"Mot de passe: "+this.mdp+"\n";
+		return result;
+	}
 	
 	/**
 	 * @return renvoi le nom de l'utilisateur courant

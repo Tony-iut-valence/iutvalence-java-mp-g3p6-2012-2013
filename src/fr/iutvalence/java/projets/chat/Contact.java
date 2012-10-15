@@ -11,14 +11,12 @@ public class Contact {
 	/**
 	 * nom du contact
 	 */
-	// FIXME un contact peut-il changer de nom ? (à discuter en séance)
-	private String nomContact;
+	private final String nomContact;
 
 	/**
 	 * adresse mac du contact
 	 */
-	// FIXME un contact peut-il changer d'adresse MAC ? (à discuter en séance)
-	private String adrmac;
+	private final String adrmac;
 	
 	
 	// FIXME (FIXED) lisibilité du commentaire
@@ -56,6 +54,13 @@ public class Contact {
 		return this.adrmac;
 	}
 	
-	// FIXME redéfinir la méthode toString, afin d'avoir une représentation texte du contact
+	// FIXME(FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte du contact
 	// FIXME écrire une application de test basique, créant un contact et l'affichant
+	public String toString()
+	{
+		String result="nom du contact: "+this.nomContact+"\n";
+		result=result+"adresse mac: "+this.adrmac+"\n";
+		return result;
+	}
+	
 }

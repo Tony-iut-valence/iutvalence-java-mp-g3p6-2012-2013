@@ -1,5 +1,6 @@
 package fr.iutvalence.java.projets.chat;
 
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -26,7 +27,7 @@ public class Message {
 	/**
 	 * destination du message
 	 */
-	private final String dest;
+	private String dest;
 	
 	// FIXME compléter le commentaire
 	/**
@@ -41,8 +42,51 @@ public class Message {
 	}
 	
 	
-	// FIXME (autres) constructeurs , méthodes ?
+	
+	// FIXME (autres)(FIXED) constructeurs , méthodes ?
 
-	// FIXME redéfinir la méthode toString, afin d'avoir une représentation texte du message
+	// FIXME (FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte du message
 	// FIXME écrire une application de test basique, créant un message et l'affichant
+	public String toString()
+	{
+		String result="date du message: "+this.date.toString()+"\n";
+		result=result+"destinataire: "+this.dest+"\n";
+		result=result+"contenu du message: "+this.contenu;
+		return result;
+	}
+	
+	/**
+	 * Obtenir le contenu du message
+	 * @return le contenu du message
+	 */
+	public String getContenu()
+	{
+		return this.contenu;
+	}
+	
+	/**
+	 * Obtenir le nom du destinataire du message
+	 * @return le destinataire du message
+	 */
+	public String getDestinataire()
+	{
+		return this.dest;
+	}
+	/**
+	 * Obtenir la date de création du message
+	 * @return la date de création du message
+	 */
+	public Date getDate()
+	{
+		return this.date;
+	}
+	
+	/**
+	 * change le destinataire du message
+	 * @param dest nouvelle valeure pour le destinataire du message
+	 */
+	public void changerDestinataire(String dest)
+	{
+		this.dest=dest;
+	}
 }
