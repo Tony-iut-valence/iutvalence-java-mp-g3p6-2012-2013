@@ -1,10 +1,8 @@
 package fr.iutvalence.java.projets.chat;
 
 
-
-
 /**
- *  class qui represente un repertoire -> tableau de conctats
+ *  class qui represente un repertoire -> ensemble de contacts
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Repertoire {
@@ -25,8 +23,8 @@ public class Repertoire {
 	/**
 	 * nom du repertoire
 	 */
+	// FIXME réfléchir à la visibilité (à discuter en séance)
 	protected String nom;
-	
 	
 	/**
 	 * tableau de contacts
@@ -34,6 +32,7 @@ public class Repertoire {
 	private Contact[] contacts;
 	
 
+	// FIXME renommer l'attribut (les contacts peuvent être multiples)
 	/**
 	 * nombre de contacts
 	 */
@@ -52,8 +51,7 @@ public class Repertoire {
 		this.nombreDeContact=0;
 		this.contacts=new Contact[MAX_CONTACT];
 		
-	}
-	
+	}	
 	
 	// FIXME compléter le commentaire
 	/**
@@ -62,11 +60,13 @@ public class Repertoire {
 	 * @param adrmac
 	 * 
 	 */
+	// FIXME gérer les erreurs avec des exceptions
 	public void ajouterContact(String nom,String adrmac)
 	{
 		Contact cont1,cont2;
 		int i=0;
 		this.nombreDeContact=this.nombreDeContact+1;
+		// FIXME la conjonction de conditions s'écrit &&
 		while((i<this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)<0))
 		{
 			i=i+1;
@@ -80,6 +80,7 @@ public class Repertoire {
 		{
 			if((this.contacts[i].getNomContact()).compareTo(nom)==0)
 			{
+				// FIXME pas d'affichage console dans les méthodes du modèle -> exceptions
 				System.out.println("Il y a déjà un contact de ce nom.");
 			}
 			
@@ -104,8 +105,9 @@ public class Repertoire {
 	}
 	
 	
+	// FIXME déplacer l'exception dans un fichier à part (une classe par fichier)
 	/**
-	 * @author chizatto
+	 *
 	 *déclaration du type d'erreur de saisie
 	 */
 	public class SaisieIncorrectExeption extends Exception {}
@@ -118,15 +120,19 @@ public class Repertoire {
 	 * 
 	 * @throws SaisieIncorrectExeption exeption soulevé si le contact n'est pas dans le tableau
 	 */
+	// FIXME le type de l'exception est mal choisi
+	// FIXME renvoyer un objet contact plutôt que l'adresse
 	public String rechercheAdrContact(String nom) throws SaisieIncorrectExeption
 	{
 		int i=0;
+		// FIXME la conjonction de conditions s'écrit &&
 		while((i<=this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
 		if(i>this.nombreDeContact)
 		{
+			// FIXME pas d'affichage console dans les méthodes du modèle -> exceptions
 			System.out.println("Ce contact n'existe pas.");
 		}
 		else
@@ -134,6 +140,7 @@ public class Repertoire {
 			return this.contacts[i].getAdrMac();
 		}
 
+		// FIXME essayer de traiter les cas d'erreur en début de méthode, c'est souvent plus clair
 		throw new SaisieIncorrectExeption();
 		
 	}
@@ -145,6 +152,8 @@ public class Repertoire {
 	 * @return le nom associe a l'adresse mac
 	 * 
 	 */
+	// FIXME renvoyer la valeur nulle si le contact n'est pas présent
+	// FIXME renvoyer un objet contact plutôt que le nom
 	public String rechercheNomContact(String adrmac)
 	{
 		int i=0;
@@ -160,6 +169,7 @@ public class Repertoire {
 		{
 			return this.contacts[i].getNomContact();
 		}
+		
 		return "Paul";
 		
 	}
@@ -197,6 +207,8 @@ public class Repertoire {
 	}
 	
 
-
+	// FIXME redéfinir la méthode toString (en s'appuyant sur celle de Contact), afin d'avoir une représentation texte du répertoire
+	// FIXME écrire une application de test basique, créant un répertoire et l'affichant
+	// FIXME écrire une application testant l'ajout, le retrait, la recherche.
 
 }

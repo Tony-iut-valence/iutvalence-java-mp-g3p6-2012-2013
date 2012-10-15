@@ -1,6 +1,6 @@
 package fr.iutvalence.java.projets.chat;
 
-
+// FIXME détailler le commentaire
 /**
  * Represente l'utilisateur
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
@@ -14,6 +14,7 @@ public class Utilisateur {
 	/**
 	 * nom de l'utilisateur
 	 */
+	// FIXME le nom de l'utilisateur peut-il changer (à discuter)
 	private String nomUtilisateur;
 	
 	/**
@@ -22,7 +23,7 @@ public class Utilisateur {
 	private String mdp;
 	
 	/**
-	 * repertoire associe
+	 * repertoire associé
 	 */
 	private Repertoire rep;
 	
@@ -43,6 +44,10 @@ public class Utilisateur {
 	}
 
 
+	// FIXME autres méthodes ?
+	
+	// FIXME redéfinir la méthode toString, afin d'avoir une représentation texte de l'utilisateur
+		// FIXME écrire une application de test basique, créant un utilisateur et l'affichant
 
 	
 	
