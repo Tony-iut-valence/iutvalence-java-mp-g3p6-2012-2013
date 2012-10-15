@@ -1,4 +1,4 @@
-package fr.chat;
+package fr.iutvalence.java.projets.chat;
 
 
 /**
@@ -14,7 +14,7 @@ public class Utilisateur {
 	/**
 	 * nom de l'utilisateur
 	 */
-	private String nom;
+	private String nomUtilisateur;
 	
 	/**
 	 * code de l'utilisateur
@@ -36,13 +36,40 @@ public class Utilisateur {
 	 */
 	public Utilisateur(String nom,String mdp)
 	{
-		this.nom = nom;
+		this.nomUtilisateur = nom;
 		this.mdp = mdp;
 		
 		this.rep=new Repertoire(REPERTOIRE_PAR_DEFAUT);
 	}
 
 
+
+	
+	
+	/**
+	 * @return renvoi le nom de l'utilisateur courant
+	 */
+	public String getNomUtilisateur()
+	{
+		return this.nomUtilisateur;
+	}
+
+	/**
+	 * @return renvoi le mot de passe de l'utilisateur courant
+	 */
+	public String getMdp()
+	{
+		return this.mdp;
+	}
+	
+	/**
+	 * @return renvoi le repertoire de l'utilisateur courant
+	 */
+	public Repertoire getRepertoire()
+	{
+		return this.rep;
+	}
+	
 	// FIXME compléter le commentaire
 	/**
 	 * creation d'un nouveau repertoire vide pour l'utilisateur courant
@@ -54,5 +81,20 @@ public class Utilisateur {
 		this.rep=new Repertoire(nomrep);
 	}
 	
-
+	/**
+	 * @param rep remplace le repertoire de l'utilisateur courant par rep
+	 */
+	public void changerRep(Repertoire rep)
+	{
+		this.rep=rep;
+	}
+	
+	/**
+	 * @param mdp remplace le mot de passe de l'utilisateur courant par mdp
+	 */
+	public void changerMotDePasse(String mdp)
+	{
+		this.mdp=mdp;
+	}
+	
 }

@@ -1,5 +1,4 @@
-// FIXME trouver un nom de paquetage plus évocateur (fr.iutvalence.java.projets.chat)
-package fr.chat;
+package fr.iutvalence.java.projets.chat;
 
 // FIXME détailler le commentaire
 /**
@@ -12,13 +11,13 @@ public class Contact {
 	/**
 	 * nom du contact
 	 */
-	protected String nom;
+	private String nomContact;
 
 	// FIXME pourquoi protected ? (à discuter en séance)
 	/**
 	 * adresse mac du contact
 	 */
-	protected String adrmac;
+	private String adrmac;
 	
 	
 	/**
@@ -30,13 +29,26 @@ public class Contact {
 	 */
 	public Contact(String nom,String adrmac)
 	{
-		this.nom = nom;
+		this.nomContact = nom;
 		this.adrmac = adrmac;
 		
 	}
 	
-	// FIXME méthodes ?
+	/**
+	 * @return renvoi le nom du contact courant
+	 */
+	
+	public String getNomContact()
+	{
+		return this.nomContact;
+	}
 	
 
-	
+	/**
+	 * @return renvoi l'adresse mac du contact courant
+	 */
+	public String getAdrMac()
+	{
+		return this.adrmac;
+	}
 }

@@ -1,4 +1,4 @@
-package fr.chat;
+package fr.iutvalence.java.projets.chat;
 
 import java.util.Date;
 

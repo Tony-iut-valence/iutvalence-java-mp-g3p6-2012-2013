@@ -1,4 +1,4 @@
-package fr.chat;
+package fr.iutvalence.java.projets.chat;
 
 
 
@@ -41,7 +41,7 @@ public class Repertoire {
 	 */
 	// FIXME pourquoi protected ?
 	// FIXME renommer l'attribut
-	protected int nbContact;
+	protected int nombreDeContact;
 	
 	
 	// FIXME compléter le commentaire
@@ -53,7 +53,7 @@ public class Repertoire {
 	public Repertoire(String nomrep)
 	{
 		this.nom=nomrep;
-		this.nbContact=0;
+		this.nombreDeContact=0;
 		this.contacts=new Contact[MAX_CONTACT];
 		
 	}
@@ -70,20 +70,19 @@ public class Repertoire {
 	{
 		Contact cont1,cont2;
 		int i=0;
-		this.nbContact=this.nbContact+1;
-		while((i<this.nbContact)&((this.contacts[i].nom).compareTo(nom)<0))
+		this.nombreDeContact=this.nombreDeContact+1;
+		while((i<this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)<0))
 		{
 			i=i+1;
 			
 		}
-		if (i==this.nbContact)
+		if (i==this.nombreDeContact)
 		{
-			this.contacts[i].nom=nom;
-			this.contacts[i].adrmac=adrmac;
+			this.contacts[i]=new Contact(nom,adrmac);
 		}
 		else
 		{
-			if((this.contacts[i].nom).compareTo(nom)==0)
+			if((this.contacts[i].getNomContact()).compareTo(nom)==0)
 			{
 				System.out.println("Il y a déjà un contact de ce nom.");
 			}
@@ -91,11 +90,10 @@ public class Repertoire {
 			else
 			{
 				cont1=this.contacts[i];
-				this.contacts[i].nom=nom;
-				this.contacts[i].adrmac=adrmac;
+				this.contacts[i]=new Contact(nom,adrmac);
 				i=i+1;
 	
-				while(i<=this.nbContact)
+				while(i<=this.nombreDeContact)
 				{
 					cont2=this.contacts[i];
 					this.contacts[i]=cont1;
@@ -127,17 +125,17 @@ public class Repertoire {
 	public String rechercheAdrContact(String nom) throws SaisieIncorrectExeption
 	{
 		int i=0;
-		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
+		while((i<=this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nbContact)
+		if(i>this.nombreDeContact)
 		{
 			System.out.println("Ce contact n'existe pas.");
 		}
 		else
 		{
-			return this.contacts[i].adrmac;
+			return this.contacts[i].getAdrMac();
 		}
 
 		throw new SaisieIncorrectExeption();
@@ -154,17 +152,17 @@ public class Repertoire {
 	public String rechercheNomContact(String adrmac)
 	{
 		int i=0;
-		while((i<=this.nbContact)&((this.contacts[i].adrmac).compareTo(adrmac)!=0))
+		while((i<=this.nombreDeContact)&((this.contacts[i].getAdrMac()).compareTo(adrmac)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nbContact)
+		if(i>this.nombreDeContact)
 		{
 			System.out.println("Cette adresse mac est introuvable.");
 		}
 		else
 		{
-			return this.contacts[i].nom;
+			return this.contacts[i].getNomContact();
 		}
 		return "Paul";
 		
@@ -179,12 +177,12 @@ public class Repertoire {
 	public void supprimeContact(String nom)
 	{
 		int i=0;
-		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
+		while((i<=this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
 		{
 			i=i+1;
 			
 		}
-		if (i>this.nbContact)
+		if (i>this.nombreDeContact)
 		{
 			System.out.println("Ce contact n'existe pas introuvable.");
 
@@ -192,41 +190,17 @@ public class Repertoire {
 		else
 		{
 			
-			while(i<this.nbContact)
+			while(i<this.nombreDeContact)
 			{
 				this.contacts[i]=this.contacts[i+1];
 				i=i+1;
 			}
-			this.nbContact=this.nbContact-1;
+			this.nombreDeContact=this.nombreDeContact-1;
 		}
 			
 	}
 	
 
-	// FIXME corriger le commentaire
-	/**
-	 * remplace l'adresse mac du contact de nom nom par adrmac
-	 * @param nom du contact a modifier
-	 * @param adrmac nouvelle adrmac du contact
-	 * 
-	 * 
-	 */
-	public void modifieAdrContact(String nom,String adrmac)
-	{
-		int i=0;
-		while((i<=this.nbContact)&((this.contacts[i].nom).compareTo(nom)!=0))
-		{
-			i=i+1;
-		}
-		if(i>this.nbContact)
-		{
-			System.out.println("Ce contact n'existe pas.");
-		}
-		else
-		{
-			this.contacts[i].adrmac=adrmac;
-		}
-			
-	}
+
 
 }
