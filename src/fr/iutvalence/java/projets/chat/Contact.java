@@ -18,8 +18,6 @@ public class Contact {
 	 */
 	private final String adrmac;
 	
-	
-	// FIXME (FIXED) lisibilité du commentaire
 	/**
 	 * Création d'un nouveau contact de nom et adresse MAC donnés.
 	 * @param nom le nom du contact
@@ -33,7 +31,6 @@ public class Contact {
 		
 	}
 	
-	// FIXME (FIXED) lisibilité du commentaire
 	/**
 	 * Obtenir le nom du contact.
 	 * @return le nom du contact
@@ -44,7 +41,6 @@ public class Contact {
 		return this.nomContact;
 	}
 	
-	// FIXME (FIXED) lisibilité du commentaire
 	/**
 	 * Obtenir l'adresse MAC du contact
 	 * @return l'adresse MAC du contact
@@ -54,8 +50,13 @@ public class Contact {
 		return this.adrmac;
 	}
 	
-	// FIXME(FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte du contact
 	// FIXME écrire une application de test basique, créant un contact et l'affichant
+	
+	
+	// FIXME compléter le commentaire
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		String result="nom du contact: "+this.nomContact+"\n";

@@ -1,6 +1,5 @@
 package fr.iutvalence.java.projets.chat;
 
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -18,6 +17,7 @@ public class Message {
 	private final String contenu;
 	
 	// FIXME ne pas gérer les dates avec un objet Date (presques toutes les méthodes sont obsolètes) mais avec un objet Calendar
+	// FIXME ou à la limite, utiliser un long représentant la date EPOCH
 	/**
 	 * date de fin de creation du message
 	 */
@@ -43,10 +43,14 @@ public class Message {
 	
 	
 	
-	// FIXME (autres)(FIXED) constructeurs , méthodes ?
 
-	// FIXME (FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte du message
 	// FIXME écrire une application de test basique, créant un message et l'affichant
+	
+	
+	// FIXME compléter le commentaire
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		String result="date du message: "+this.date.toString()+"\n";

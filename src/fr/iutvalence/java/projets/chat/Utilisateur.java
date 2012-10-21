@@ -43,11 +43,14 @@ public class Utilisateur {
 	}
 
 
-	// FIXME(1/2 FIXED) autres méthodes ?
 	
-	// FIXME(FIXED) redéfinir la méthode toString, afin d'avoir une représentation texte de l'utilisateur
 		// FIXME écrire une application de test basique, créant un utilisateur et l'affichant
 
+
+	// FIXME compléter le commentaire
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		String result="nom de l'utilisateur: "+this.nomUtilisateur+"\n";
@@ -55,6 +58,7 @@ public class Utilisateur {
 		return result;
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @return renvoi le nom de l'utilisateur courant
 	 */
@@ -63,6 +67,7 @@ public class Utilisateur {
 		return this.nomUtilisateur;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return renvoi le mot de passe de l'utilisateur courant
 	 */
@@ -71,6 +76,7 @@ public class Utilisateur {
 		return this.mdp;
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @return renvoi le repertoire de l'utilisateur courant
 	 */
@@ -90,6 +96,7 @@ public class Utilisateur {
 		this.rep=new Repertoire(nomrep);
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @param rep remplace le repertoire de l'utilisateur courant par rep
 	 */
@@ -98,6 +105,7 @@ public class Utilisateur {
 		this.rep=rep;
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @param mdp remplace le mot de passe de l'utilisateur courant par mdp
 	 */
