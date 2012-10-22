@@ -194,7 +194,7 @@ public class Repertoire {
 	
 
 
-	// FIXME écrire une application de test basique, créant un répertoire et l'affichant
+	// FIXME(~FIXED) écrire une application de test basique, créant un répertoire et l'affichant
 	// FIXME écrire une application testant l'ajout, le retrait, la recherche.
 
 	
@@ -216,7 +216,8 @@ public class Repertoire {
 	 */
 	public String toString()	
 	{
-		String result="nombre de contact: "+this.nombreDeContacts+"\n";
+		String result="nom du repertoire: "+this.nom+"\n";
+		result=result+"nombre de contact: "+this.nombreDeContacts+"\n";
 		result=result+"contenu de la table:\n";
 		for (int i=0; i<this.nombreDeContacts; i++)
 		{

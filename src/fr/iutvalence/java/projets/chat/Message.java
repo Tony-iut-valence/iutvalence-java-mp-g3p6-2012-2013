@@ -46,7 +46,7 @@ public class Message {
 	
 	
 
-	// FIXME écrire une application de test basique, créant un message et l'affichant
+	// FIXME(FIXED) écrire une application de test basique, créant un message et l'affichant
 	
 	
 	// FIXME(FIXED) compléter le commentaire
