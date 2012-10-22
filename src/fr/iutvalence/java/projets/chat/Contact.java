@@ -50,7 +50,7 @@ public class Contact {
 		return this.adrmac;
 	}
 	
-	// FIXME écrire une application de test basique, créant un contact et l'affichant
+	// FIXME(FIXED) écrire une application de test basique, créant un contact et l'affichant
 	
 	
 	// FIXME(FIXED) compléter le commentaire
