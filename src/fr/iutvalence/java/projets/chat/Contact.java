@@ -1,8 +1,8 @@
 package fr.iutvalence.java.projets.chat;
 
-// FIXME détailler le commentaire
+// FIXME(FIXED) détailler le commentaire
 /**
- * class qui represente un contact 
+ * class qui represente un contact, il ce constitue d'un nom et d'une adresse mac
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Contact {
@@ -53,8 +53,11 @@ public class Contact {
 	// FIXME écrire une application de test basique, créant un contact et l'affichant
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
+	 * Redéfinition de la methode toString pour la class contact, conduit a un affichage du type:
+	 * nom du contact: (nom)
+	 * adresse mac: (adr)
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString()

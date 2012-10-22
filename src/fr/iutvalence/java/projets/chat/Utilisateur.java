@@ -1,8 +1,8 @@
 package fr.iutvalence.java.projets.chat;
 
-// FIXME détailler le commentaire
+// FIXME(FIXED) détailler le commentaire
 /**
- * Represente l'utilisateur
+ * class qui represente un utilisateur, il ce constitue d'un nom et d'un mot de passe
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Utilisateur {
@@ -27,9 +27,10 @@ public class Utilisateur {
 	private Repertoire rep;
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe
+	 * innitialise rep avec un nouveau repertoire de nom: REPERTOIRE_PAR_DEFAUT
 	 * @param nom
 	 * @param mdp
 	 * 
@@ -47,8 +48,11 @@ public class Utilisateur {
 		// FIXME écrire une application de test basique, créant un utilisateur et l'affichant
 
 
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
+	 * Redéfinition de la methode toString pour la class contact, conduit a un affichage du type:
+	 * nom de l'utilisateur: (nomUtilisateur)
+	 * Mot de passe: (mdp)
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString()
@@ -58,36 +62,39 @@ public class Utilisateur {
 		return result;
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * @return renvoi le nom de l'utilisateur courant
+	 * renvoi le nom de l'utilisateur courant
+	 * @return nomUtilisateur
 	 */
 	public String getNomUtilisateur()
 	{
 		return this.nomUtilisateur;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * @return renvoi le mot de passe de l'utilisateur courant
+	 * renvoi le mot de passe de l'utilisateur courant
+	 * @return Mdp
 	 */
 	public String getMdp()
 	{
 		return this.mdp;
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * @return renvoi le repertoire de l'utilisateur courant
+	 *  renvoi le repertoire de l'utilisateur courant
+	 * @return rep
 	 */
 	public Repertoire getRepertoire()
 	{
 		return this.rep;
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * creation d'un nouveau repertoire vide pour l'utilisateur courant
+	 * creation d'un nouveau repertoire vide de nom nomrep pour l'utilisateur courant
 	 * @param nomrep
 	 * 
 	 */
@@ -96,18 +103,20 @@ public class Utilisateur {
 		this.rep=new Repertoire(nomrep);
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * @param rep remplace le repertoire de l'utilisateur courant par rep
+	 * remplace le repertoire de l'utilisateur courant par le repertoire donné rep
+	 * @param rep 
 	 */
 	public void changerRep(Repertoire rep)
 	{
 		this.rep=rep;
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * @param mdp remplace le mot de passe de l'utilisateur courant par mdp
+	 * remplace le mot de passe de l'utilisateur courant par la chaine donné mdp
+	 * @param mdp 
 	 */
 	public void changerMotDePasse(String mdp)
 	{

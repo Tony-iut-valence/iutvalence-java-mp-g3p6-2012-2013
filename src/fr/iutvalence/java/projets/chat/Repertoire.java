@@ -8,19 +8,10 @@ package fr.iutvalence.java.projets.chat;
 public class Repertoire {
 	
 	
-	// FIXME déplacer l'exception dans un fichier à part (une classe par fichier)
-	/**
-	 *
-	 *déclaration du type d'erreur de saisie
-	 */
-	public class SaisieIncorrectExeption extends Exception {}
 	
 	
-	// FIXME ne pas utiliser de valeur erreur, mais plutôt une référence nulle ou une exception
-	/**
-	 * valeur de retour d'adresse en cas d'erreur
-	 */
-	private final static String ADR_ERREUR="00:00:00:00:00:00";
+	
+	
 	
 	/**
 	 * nombre maximum de contacts dans un repertoire
@@ -39,48 +30,51 @@ public class Repertoire {
 	private Contact[] contacts;
 	
 
-	// FIXME renommer l'attribut (les contacts peuvent être multiples)
+	// FIXME(FIXED) renommer l'attribut (les contacts peuvent être multiples)
 	/**
 	 * nombre de contacts
 	 */
-	private int nombreDeContact;
+	private int nombreDeContacts;
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * Constructeur de repertoire avec pour paramètre le nom du repertoire
+	 * Constructeur de repertoire avec pour paramètre le nom du repertoire met par defaut le nombre
+	 * de contact a 0 et initialise la valeur de contacts avec un nouveau tableau de contact
 	 * @param nomrep
 	 * 
 	 */
 	public Repertoire(String nomrep)
 	{
 		this.nom=nomrep;
-		this.nombreDeContact=0;
+		this.nombreDeContacts=0;
 		this.contacts=new Contact[CONTACTS_MAXIMUM];
 		
 	}	
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
 	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac
+	 * peut renvoyer une erreur en cas de saisie incorrect
 	 * @param nom
 	 * @param adrmac
+	 * @throws NomIncorrectException 
 	 * 
 	 */
-	// FIXME le nom de l'exception n'est pas génial
+	// FIXME(FIXED) le nom de l'exception n'est pas génial
 	
-	public void ajouterContact(String nom,String adrmac) throws SaisieIncorrectExeption
+	public void ajouterContact(String nom,String adrmac) throws NomIncorrectException
 	{
 		Contact cont1,cont2;
 		int i=0;
-		this.nombreDeContact=this.nombreDeContact+1;
+		this.nombreDeContacts=this.nombreDeContacts+1;
 	
-		while((i<this.nombreDeContact)&&((this.contacts[i].getNomContact()).compareTo(nom)<0))
+		while((i<this.nombreDeContacts)&&((this.contacts[i].getNomContact()).compareTo(nom)<0))
 		{
 			i=i+1;
 			
 		}
-		if (i==this.nombreDeContact)
+		if (i==this.nombreDeContacts)
 		{
 			this.contacts[i]=new Contact(nom,adrmac);
 		}
@@ -88,7 +82,7 @@ public class Repertoire {
 		{
 			if((this.contacts[i].getNomContact()).compareTo(nom)==0)
 			{
-				throw new SaisieIncorrectExeption();
+				throw new NomIncorrectException();
 			}
 			
 			else
@@ -97,7 +91,7 @@ public class Repertoire {
 				this.contacts[i]=new Contact(nom,adrmac);
 				i=i+1;
 	
-				while(i<=this.nombreDeContact)
+				while(i<=this.nombreDeContacts)
 				{
 					cont2=this.contacts[i];
 					this.contacts[i]=cont1;
@@ -113,26 +107,25 @@ public class Repertoire {
 	
 	
 
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * recherche l'adresse correspondant au contact de nom nom
+	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
 	 * @param nom
 	 * @return l'adresse mac correspondant au nom
 	 * 
-	 * @throws SaisieIncorrectExeption exeption soulevé si le contact n'est pas dans le tableau
 	 */
-	// FIXME le type de l'exception est mal choisi
-	public Contact rechercheAdrContact(String nom) throws SaisieIncorrectExeption
+	// FIXME(FIXED remplacé par return null) le type de l'exception est mal choisi
+	public Contact rechercheAdrContact(String nom)
 	{
 		int i=0;
 
-		while((i<=this.nombreDeContact)&&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
+		while((i<=this.nombreDeContacts)&&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nombreDeContact)
+		if(i>this.nombreDeContacts)
 		{
-			throw new SaisieIncorrectExeption();
+			return null;
 		}
 		else
 		{
@@ -141,24 +134,24 @@ public class Repertoire {
 		
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * recherche le nom du contact d'adresse adrmac
+	 * recherche le nom du contact d'adresse adrmac renvoi null si l'adresse n'appartien pas au repertoire
 	 * @param adrmac
 	 * @return le nom associe a l'adresse mac
 	 * 
 	 */
-	// FIXME renvoyer la valeur nulle si le contact n'est pas présent
-	public Contact rechercheNomContact(String adrmac) throws SaisieIncorrectExeption
+	// FIXME(FIXED) renvoyer la valeur nulle si le contact n'est pas présent
+	public Contact rechercheNomContact(String adrmac)
 	{
 		int i=0;
-		while((i<=this.nombreDeContact)&((this.contacts[i].getAdrMac()).compareTo(adrmac)!=0))
+		while((i<=this.nombreDeContacts)&((this.contacts[i].getAdrMac()).compareTo(adrmac)!=0))
 		{
 			i=i+1;
 		}
-		if(i>this.nombreDeContact)
+		if(i>this.nombreDeContacts)
 		{
-			throw new SaisieIncorrectExeption();
+			return null;
 		}
 		else
 		{
@@ -166,34 +159,35 @@ public class Repertoire {
 		}
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
-	 * supprime le contact de nom nom tout en conservant l'ordre
+	 * supprime le contact de nom nom tout en conservant l'ordre renvoi une exceptionsi le contact n'est pas trouvé
 	 * @param nom
+	 * @throws NomIncorrectException 
 	 *  
 	 */
-	public void supprimeContact(String nom)
+	public void supprimeContact(String nom) throws NomIncorrectException
 	{
 		int i=0;
-		while((i<=this.nombreDeContact)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
+		while((i<=this.nombreDeContacts)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
 		{
 			i=i+1;
 			
 		}
-		if (i>this.nombreDeContact)
+		if (i>this.nombreDeContacts)
 		{
-			System.out.println("Ce contact n'existe pas introuvable.");
+			throw new NomIncorrectException();
 
 		}
 		else
 		{
 			
-			while(i<this.nombreDeContact)
+			while(i<this.nombreDeContacts)
 			{
 				this.contacts[i]=this.contacts[i+1];
 				i=i+1;
 			}
-			this.nombreDeContact=this.nombreDeContact-1;
+			this.nombreDeContacts=this.nombreDeContacts-1;
 		}
 			
 	}
@@ -204,16 +198,27 @@ public class Repertoire {
 	// FIXME écrire une application testant l'ajout, le retrait, la recherche.
 
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	
 	/**
+	 * Redéfinition de la methode toString pour la class Repertoire, conduit a un affichage du type:
+	 * nombre de contact: (nombreDeContat)
+	 *contenu de la table:
+	 * contact(0)
+	 * nom du contact: (nom 0)
+	 * adresse mac: (adr 0)
+	 *  |
+	 *  V
+	 *  contact(nombreDeContat)
+	 * nom du contact: (nom nombreDeContat)
+	 * adresse mac: (adr nombreDeContat)
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString()	
 	{
-		String result="nombre de contact: "+this.nombreDeContact+"\n";
+		String result="nombre de contact: "+this.nombreDeContacts+"\n";
 		result=result+"contenu de la table:\n";
-		for (int i=0; i<this.nombreDeContact; i++)
+		for (int i=0; i<this.nombreDeContacts; i++)
 		{
 			result=result+"contact"+String.valueOf(i)+"\n"+this.contacts[i].toString();
 		}

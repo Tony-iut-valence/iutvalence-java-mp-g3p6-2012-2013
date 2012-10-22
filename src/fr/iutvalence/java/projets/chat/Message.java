@@ -3,9 +3,9 @@ package fr.iutvalence.java.projets.chat;
 import java.util.Date;
 
 
-// FIXME détailler le commentaire
+// FIXME(FIXED) détailler le commentaire
 /**
- * class message
+ * class qui represente un message, il ce constitue d'un contenu, d'une date et d'une adresse de destination
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
 public class Message {
@@ -23,21 +23,23 @@ public class Message {
 	 */
 	private final Date date;
 	
-	// FIXME renommer l'attribut
+	// FIXME(FIXED) renommer l'attribut
 	/**
 	 * destination du message
 	 */
-	private String dest;
+	private String adresseDest;
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
+	 * Constructeur de la class message prenant en paramètre le contenu et la destination et met pour valeur de date
+	 * la date courante
 	 * @param contenu
 	 * @param dest
 	 */
 	public Message(String contenu,String dest)
 	{
 		this.contenu = contenu;
-		this.dest = dest;
+		this.adresseDest = dest;
 		this.date = new Date();
 	}
 	
@@ -47,14 +49,18 @@ public class Message {
 	// FIXME écrire une application de test basique, créant un message et l'affichant
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME(FIXED) compléter le commentaire
 	/**
+	 * Redéfinition de la methode toString pour la class Message, conduit a un affichage du type:
+	 * date du message: (date)
+	 * destinataire: (adresseDest)
+	 * contenu du message: (contenue)
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString()
 	{
 		String result="date du message: "+this.date.toString()+"\n";
-		result=result+"destinataire: "+this.dest+"\n";
+		result=result+"destinataire: "+this.adresseDest+"\n";
 		result=result+"contenu du message: "+this.contenu;
 		return result;
 	}
@@ -74,7 +80,7 @@ public class Message {
 	 */
 	public String getDestinataire()
 	{
-		return this.dest;
+		return this.adresseDest;
 	}
 	/**
 	 * Obtenir la date de création du message
@@ -91,6 +97,6 @@ public class Message {
 	 */
 	public void changerDestinataire(String dest)
 	{
-		this.dest=dest;
+		this.adresseDest=dest;
 	}
 }
