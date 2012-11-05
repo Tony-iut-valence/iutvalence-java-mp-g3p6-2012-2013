@@ -12,7 +12,7 @@ public class TestContact {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main() {
 		Contact paul= new Contact("paul","12:36:21:45:69");
 		System.out.println(paul.getNomContact());
 		System.out.println(paul.getAdrMac());
