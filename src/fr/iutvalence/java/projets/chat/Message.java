@@ -95,8 +95,19 @@ public class Message {
 	 * change le destinataire du message
 	 * @param dest nouvelle valeure pour le destinataire du message
 	 */
-	public void changerDestinataire(String dest)
+	public void setAdresseDest(String dest)
 	{
 		this.adresseDest=dest;
+	}
+	
+	public boolean equals(Object o)
+	{
+		if (! (o instanceof Message)) return false;
+		if (((Message) o).getContenu() != this.getContenu()) return false;
+		if (((Message) o).getDate() != this.getDate()) return false;
+		if (((Message) o).getDestinataire() != this.getDestinataire()) return false;
+		return true;
+
+		
 	}
 }

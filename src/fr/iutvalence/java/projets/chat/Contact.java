@@ -67,4 +67,16 @@ public class Contact {
 		return result;
 	}
 	
+	
+	public boolean equals(Object o)
+	{
+		if (! (o instanceof Contact)) return false;
+		if (((Contact) o).getNom() != this.getNom()) return false;
+		if (((Contact) o).getAdrMac() != this.getAdrMac()) return false;
+		return true;
+
+		
+	}
+	
+	
 }

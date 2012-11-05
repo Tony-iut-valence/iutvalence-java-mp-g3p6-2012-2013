@@ -123,4 +123,14 @@ public class Utilisateur {
 		this.mdp=mdp;
 	}
 	
+	public boolean equals(Object o)
+	{
+		if (! (o instanceof Utilisateur)) return false;
+		if (((Utilisateur) o).getNomUtilisateur() != this.getNomUtilisateur()) return false;
+		if (((Utilisateur) o).getMdp() != this.getMdp()) return false;
+		return true;
+
+		
+	}
+	
 }

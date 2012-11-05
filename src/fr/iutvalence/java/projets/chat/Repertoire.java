@@ -35,7 +35,31 @@ public class Repertoire {
 	 */
 	private int nombreDeContacts;
 	
-	
+	/**
+	 * Obtenir le nombre de contact du repertoire
+	 * @return le nombre de contact du repertoire
+	 */
+	public int getNombreDeContacts()
+	{
+	return this.nombreDeContacts;
+	}
+	/**
+	 * Obtenir le nom du repertoire
+	 * @return le nom du repertoire
+	 */
+	public String getNom()
+	{
+		return this.nom;
+	}
+	/**
+	 * Obtenir le contact de position i
+	 * @param i 
+	 * @return le contact de position i
+	 */
+	public Contact getContact(int i)
+	{
+		return this.contacts[i];
+	}
 	// FIXME(FIXED) compléter le commentaire
 	/**
 	 * Constructeur de repertoire avec pour paramètre le nom du repertoire met par defaut le nombre
@@ -225,6 +249,18 @@ public class Repertoire {
 			result=result+"contact"+String.valueOf(i)+"\n"+this.contacts[i].toString();
 		}
 		return result;
+	}
+	
+	public boolean equals(Object o)
+	{
+		if (! (o instanceof Repertoire)) return false;
+		if (((Repertoire) o).getNom() != this.getNom()) return false;
+		if (((Repertoire) o).getNombreDeContacts() != this.getNombreDeContacts()) return false;
+		for(int i=0;i<this.getNombreDeContacts();i++)
+		{
+			if (!(this.getContact(i).equals(((Repertoire) o).getContact(i)))) return false;
+		}
+		return true;	
 	}
 
 }
