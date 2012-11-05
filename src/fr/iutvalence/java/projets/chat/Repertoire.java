@@ -67,7 +67,7 @@ public class Repertoire {
 	{
 		Contact cont1,cont2;
 		int i=0;
-		this.nombreDeContacts=this.nombreDeContacts+1;
+		
 	
 		while((i<this.nombreDeContacts)&&((this.contacts[i].getNomContact()).compareTo(nom)<0))
 		{
@@ -77,6 +77,7 @@ public class Repertoire {
 		if (i==this.nombreDeContacts)
 		{
 			this.contacts[i]=new Contact(nom,adrmac);
+			this.nombreDeContacts=this.nombreDeContacts+1;
 		}
 		else
 		{
@@ -100,6 +101,7 @@ public class Repertoire {
 	
 					
 				}
+				this.nombreDeContacts=this.nombreDeContacts+1;
 			}		
 		}
 			
@@ -194,8 +196,8 @@ public class Repertoire {
 	
 
 
-	// FIXME(~FIXED) écrire une application de test basique, créant un répertoire et l'affichant
-	// FIXME écrire une application testant l'ajout, le retrait, la recherche.
+	// FIXME(FIXED) écrire une application de test basique, créant un répertoire et l'affichant
+	// FIXME(FIXED) écrire une application testant l'ajout, le retrait, la recherche.
 
 	
 	// FIXME(FIXED) compléter le commentaire

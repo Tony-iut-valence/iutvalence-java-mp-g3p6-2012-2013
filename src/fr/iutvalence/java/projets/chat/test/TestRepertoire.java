@@ -8,17 +8,71 @@ import fr.iutvalence.java.projets.chat.*;
  * @author chizatto
  *
  */
-public class TestRepertoire {
+public class TestRepertoire 
+{
 
-	/** 
+	/**
+	 * @param args  
 	  
 	 * 	 
 	 */
-	public static void main() {
+	public static void main(String[] args) 
+	{
 		Repertoire rep = new Repertoire("Repertoire de Paul");
 		System.out.println(rep.toString());
+		try
+		{
+		rep.ajouterContact("Paul", "23:14:25:54:63");
+		}
+		catch (NomIncorrectException e)
+		{
+			System.out.println("erreur a l'ajout");
+		}
+		finally
+		{
+		}
+		try
+		{
+		rep.ajouterContact("Gertrude", "23:14:25:14:33");
+		}
+		catch (NomIncorrectException e)
+		{
+			System.out.println("erreur a l'ajout");
+		}
+		finally
+		{
+		}
+		try
+		{
+		rep.ajouterContact("Gertrude", "23:14:25:14:33");
+		}
+		catch (NomIncorrectException e)
+		{
+			System.out.println("*********erreur a l'ajout*********\n\n");
+		}
+		finally
+		{
+			System.out.println(rep.toString());
+		}
+		try
+		{
+		rep.supprimeContact("Paul");
+		}
+		catch (NomIncorrectException e)
+		{
+			System.out.println("*********erreur a la suppression*********\n\n");
+		}
+		finally
+		{
+			System.out.println(rep.toString());
+		}
+		System.out.println("\n"+rep.rechercheAdrContact("Gertrude")+"\n");
+		System.out.println("\n"+rep.rechercheNomContact("23:14:25:14:33")+"\n");
+
+		
+	}
 	
 
-	}
-
 }
+
+
