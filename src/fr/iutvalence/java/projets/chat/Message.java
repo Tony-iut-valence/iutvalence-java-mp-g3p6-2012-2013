@@ -1,6 +1,6 @@
 package fr.iutvalence.java.projets.chat;
 
-import java.util.Date;
+import java.util.Calendar;
 
 
 // FIXME(FIXED) détailler le commentaire
@@ -16,12 +16,12 @@ public class Message {
 	 */
 	private final String contenu;
 	
-	// FIXME ne pas gérer les dates avec un objet Date (presques toutes les méthodes sont obsolètes) mais avec un objet Calendar
-	// FIXME ou à la limite, utiliser un long représentant la date EPOCH
+	// FIXME(FIXED) ne pas gérer les dates avec un objet Date (presques toutes les méthodes sont obsolètes) mais avec un objet Calendar
+	// FIXME(FIXED) ou à la limite, utiliser un long représentant la date EPOCH
 	/**
 	 * date de fin de creation du message
 	 */
-	private final Date date;
+	private final Calendar date;
 	
 	// FIXME(FIXED) renommer l'attribut
 	/**
@@ -40,7 +40,7 @@ public class Message {
 	{
 		this.contenu = contenu;
 		this.adresseDest = dest;
-		this.date = new Date();
+		this.date = Calendar.getInstance();
 	}
 	
 	
@@ -59,7 +59,7 @@ public class Message {
 	 */
 	public String toString()
 	{
-		String result="date du message: "+this.date.toString()+"\n";
+		String result="date du message: "+this.date.getTime().toString()+"\n";
 		result=result+"destinataire: "+this.adresseDest+"\n";
 		result=result+"contenu du message: "+this.contenu;
 		return result;
@@ -86,7 +86,7 @@ public class Message {
 	 * Obtenir la date de création du message
 	 * @return la date de création du message
 	 */
-	public Date getDate()
+	public Calendar getDate()
 	{
 		return this.date;
 	}

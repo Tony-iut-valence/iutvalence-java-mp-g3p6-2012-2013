@@ -20,9 +20,6 @@ public class TestMessage {
 		System.out.println(pitimessage.getDate());
 		System.out.println(pitimessage.toString());
 		pitimessage.changerDestinataire("12:56:91:38:59");
-		System.out.println(pitimessage.getContenu());
-		System.out.println(pitimessage.getDestinataire());
-		System.out.println(pitimessage.getDate());
 		System.out.println(pitimessage.toString());
 
 	}
