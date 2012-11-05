@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+/*import java.util.*;*/
 
 /**
  *  class qui represente un repertoire -> ensemble de contacts

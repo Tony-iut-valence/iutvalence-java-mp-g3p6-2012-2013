@@ -44,6 +44,7 @@ public class TestRepertoire
 		}
 		try
 		{
+		System.out.println("test de l'ajout d'une personne déjà présente:\n");
 		rep.ajouterContact("Gertrude", "23:14:25:14:33");
 		}
 		catch (NomIncorrectException e)
@@ -66,8 +67,8 @@ public class TestRepertoire
 		{
 			System.out.println(rep.toString());
 		}
-		System.out.println("\n"+rep.rechercheAdrContact("Gertrude")+"\n");
-		System.out.println("\n"+rep.rechercheNomContact("23:14:25:14:33")+"\n");
+		System.out.println("\n"+"recherche de l'adresse:\n"+rep.rechercheAdrContact("Gertrude")+"\n");
+		System.out.println("\n"+"recherche du nom:\n"+rep.rechercheNomContact("23:14:25:14:33")+"\n");
 
 		
 	}
