@@ -7,11 +7,11 @@ package fr.iutvalence.java.projets.chat;
  */
 public class Contact {
 	
-	// FIXME on peut se limiter à "nom", "Contact" est implicite
+	// FIXME(FIXED) on peut se limiter à "nom", "Contact" est implicite
 	/**
 	 * nom du contact
 	 */
-	private final String nomContact;
+	private final String nom;
 
 	/**
 	 * adresse mac du contact
@@ -26,7 +26,7 @@ public class Contact {
 	 */
 	public Contact(String nom,String adrmac)
 	{
-		this.nomContact = nom;
+		this.nom = nom;
 		this.adrmac = adrmac;
 		
 	}
@@ -35,10 +35,10 @@ public class Contact {
 	 * Obtenir le nom du contact.
 	 * @return le nom du contact
 	 */
-	// FIXME même remarque pour le nom de la méthode que pour le nom de l'attribut
-	public String getNomContact()
+	// FIXME(FIXED) même remarque pour le nom de la méthode que pour le nom de l'attribut
+	public String getNom()
 	{
-		return this.nomContact;
+		return this.nom;
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class Contact {
 	 */
 	public String toString()
 	{
-		String result="nom du contact: "+this.nomContact+"\n";
+		String result="nom du contact: "+this.nom+"\n";
 		result=result+"adresse mac: "+this.adrmac+"\n";
 		return result;
 	}

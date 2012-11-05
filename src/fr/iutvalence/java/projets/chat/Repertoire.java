@@ -21,8 +21,7 @@ public class Repertoire {
 	/**
 	 * nom du repertoire
 	 */
-	// FIXME réfléchir à la visibilité (à discuter en séance)
-	protected String nom;
+	private String nom;
 	
 	/**
 	 * tableau de contacts
@@ -69,7 +68,7 @@ public class Repertoire {
 		int i=0;
 		
 	
-		while((i<this.nombreDeContacts)&&((this.contacts[i].getNomContact()).compareTo(nom)<0))
+		while((i<this.nombreDeContacts)&&((this.contacts[i].getNom()).compareTo(nom)<0))
 		{
 			i=i+1;
 			
@@ -81,7 +80,7 @@ public class Repertoire {
 		}
 		else
 		{
-			if((this.contacts[i].getNomContact()).compareTo(nom)==0)
+			if((this.contacts[i].getNom()).compareTo(nom)==0)
 			{
 				throw new NomIncorrectException();
 			}
@@ -121,7 +120,7 @@ public class Repertoire {
 	{
 		int i=0;
 
-		while((i<=this.nombreDeContacts)&&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
+		while((i<=this.nombreDeContacts)&&((this.contacts[i].getNom()).compareTo(nom)!=0))
 		{
 			i=i+1;
 		}
@@ -171,7 +170,7 @@ public class Repertoire {
 	public void supprimeContact(String nom) throws NomIncorrectException
 	{
 		int i=0;
-		while((i<=this.nombreDeContacts)&((this.contacts[i].getNomContact()).compareTo(nom)!=0))
+		while((i<=this.nombreDeContacts)&((this.contacts[i].getNom()).compareTo(nom)!=0))
 		{
 			i=i+1;
 			
