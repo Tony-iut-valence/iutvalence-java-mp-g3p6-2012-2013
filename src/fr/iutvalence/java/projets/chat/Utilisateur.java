@@ -26,6 +26,11 @@ public class Utilisateur
 	 * repertoire associé
 	 */
 	private RepertoireTableau rep;
+	
+	/**
+	 * adresse de l'utilisateur
+	 */
+	private String adresseIP;
 
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe innitialise rep avec un
@@ -75,7 +80,25 @@ public class Utilisateur
 	{
 		return this.mdp;
 	}
-
+	/**
+	 * renvoi l'IP de l'utilisateur courant
+	 * 
+	 * @return adresseIP
+	 */
+	public String getAdresseIP()
+	{
+		return this.adresseIP;
+	}
+	
+	/**
+	 * remplace l'IP de l'utilisateur courant par ip
+	 * @param ip 
+	 * 
+	 */
+	public void setAdresseIP(String ip)
+	{
+		 this.adresseIP=ip;
+	}
 	/**
 	 * renvoi le repertoire de l'utilisateur courant
 	 * 
