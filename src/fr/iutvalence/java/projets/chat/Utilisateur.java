@@ -25,7 +25,7 @@ public class Utilisateur
 	/**
 	 * repertoire associé
 	 */
-	private Repertoire rep;
+	private RepertoireTableau rep;
 
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe innitialise rep avec un
@@ -40,7 +40,7 @@ public class Utilisateur
 		this.nomUtilisateur = nom;
 		this.mdp = mdp;
 
-		this.rep = new Repertoire(REPERTOIRE_PAR_DEFAUT);
+		this.rep = new RepertoireTableau(REPERTOIRE_PAR_DEFAUT);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class Utilisateur
 	 * 
 	 * @return le repertoire de l'utilisateur courant
 	 */
-	public Repertoire getRepertoire()
+	public RepertoireTableau getRepertoire()
 	{
 		return this.rep;
 	}
@@ -94,7 +94,7 @@ public class Utilisateur
 	 */
 	public void creeRep(String nomrep)
 	{
-		this.rep = new Repertoire(nomrep);
+		this.rep = new RepertoireTableau(nomrep);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class Utilisateur
 	 * 
 	 * @param rep
 	 */
-	public void changerRep(Repertoire rep)
+	public void changerRep(RepertoireTableau rep)
 	{
 		this.rep = rep;
 	}

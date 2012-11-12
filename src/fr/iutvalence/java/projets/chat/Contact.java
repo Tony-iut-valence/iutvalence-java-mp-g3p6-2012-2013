@@ -17,7 +17,7 @@ public class Contact
 	/**
 	 * adresse mac du contact
 	 */
-	private final String adresseMac;
+	private final String adresseIP;
 
 	/**
 	 * etat de connexion du contact(quand connecter vaut true le contact est connecté)
@@ -28,14 +28,14 @@ public class Contact
 	 * 
 	 * @param nom
 	 *            le nom du contact
-	 * @param adrmac
+	 * @param adrIP
 	 *            l'adresse MAC du contact
 	 * 
 	 */
-	public Contact(String nom, String adrmac)
+	public Contact(String nom, String adrIP)
 	{
 		this.nom = nom;
-		this.adresseMac = adrmac;
+		this.adresseIP = adrIP;
 		this.connecter= false;
 	}
 
@@ -50,13 +50,13 @@ public class Contact
 	}
 
 	/**
-	 * Obtenir l'adresse MAC du contact
+	 * Obtenir l'adresse IP du contact
 	 * 
-	 * @return l'adresse MAC du contact
+	 * @return l'adresse IP du contact
 	 */
-	public String getAdresseMac()
+	public String getAdresseIP()
 	{
-		return this.adresseMac;
+		return this.adresseIP;
 	}
 
 	
@@ -71,20 +71,22 @@ public class Contact
 	}
 	/**
 	 * Redéfinition de la methode toString pour la class contact, conduit a un affichage du type: nom du contact: (nom)
-	 * adresse mac: (adr)
+	 * adresse IP: (adr)
+	 * connecter:(false/true)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString()
 	{
 		String result = "nom du contact: " + this.nom + "\n";
-		result = result + "adresse mac: " + this.adresseMac + "\n";
+		result = result + "adresse IP: " + this.adresseIP + "\n";
+		result=result+"connecter"+this.connecter+"\n";
 		return result;
 	}
 
 	// FIXME(FIXED) dire en quoi 2 contacts sont égaux 
 	/**
-	 * 2 contacts sont égaux si ils ont le même nom
+	 * 2 contacts sont égaux si ils ont le même nom et la même adresse IP
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object o)
@@ -92,6 +94,8 @@ public class Contact
 		if (!(o instanceof Contact))
 			return false;
 		if (((Contact) o).getNom() != this.getNom())
+			return false;
+		if (((Contact) o).getAdresseIP() != this.getAdresseIP())
 			return false;
 		return true;
 	}

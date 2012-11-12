@@ -7,7 +7,7 @@ package fr.iutvalence.java.projets.chat;
  * 
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
-public class Repertoire
+public class RepertoireTableau implements InterfaceRepertoire
 {
 
 	/**
@@ -72,7 +72,7 @@ public class Repertoire
 	 * @param nomrep
 	 * 
 	 */
-	public Repertoire(String nomrep)
+	public RepertoireTableau(String nomrep)
 	{
 		this.nom = nomrep;
 		this.nombreDeContacts = 0;
@@ -85,11 +85,11 @@ public class Repertoire
 	 * renvoyer une erreur en cas de saisie incorrect
 	 * 
 	 * @param nom
-	 * @param adrmac
+	 * @param adrIP
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException
+	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException
 	{
 		Contact cont1, cont2;
 		int i = 0;
@@ -101,7 +101,7 @@ public class Repertoire
 		}
 		if (i == this.nombreDeContacts)
 		{
-			this.contacts[i] = new Contact(nom, adrmac);
+			this.contacts[i] = new Contact(nom, adrIP);
 			this.nombreDeContacts = this.nombreDeContacts + 1;
 		}
 		else
@@ -114,7 +114,7 @@ public class Repertoire
 			else
 			{
 				cont1 = this.contacts[i];
-				this.contacts[i] = new Contact(nom, adrmac);
+				this.contacts[i] = new Contact(nom, adrIP);
 				i = i + 1;
 
 				while (i <= this.nombreDeContacts)
@@ -161,15 +161,15 @@ public class Repertoire
 	/**
 	 * recherche le nom du contact d'adresse adrmac renvoi null si l'adresse n'appartien pas au repertoire
 	 * 
-	 * @param adrmac
-	 * @return le nom associe a l'adresse mac
+	 * @param adrIP
+	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
 	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par adresse MAC, il faut la renommer
-	public Contact rechercheNomContactParAdresse(String adrmac)
+	public Contact rechercheNomContactParAdresse(String adrIP)
 	{
 		int i = 0;
-		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseMac()).compareTo(adrmac) != 0))
+		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseIP()).compareTo(adrIP) != 0))
 		{
 			i = i + 1;
 		}
@@ -241,17 +241,17 @@ public class Repertoire
 	 */
 	public boolean equals(Object o)
 	{
-		if (!(o instanceof Repertoire))
+		if (!(o instanceof RepertoireTableau))
 			return false;
-		if (((Repertoire) o).getNom() != this.getNom())
+		if (((RepertoireTableau) o).getNom() != this.getNom())
 			return false;
-		if (((Repertoire) o).getNombreDeContacts() != this.getNombreDeContacts())
+		if (((RepertoireTableau) o).getNombreDeContacts() != this.getNombreDeContacts())
 			return false;
 		for (int i = 0; i < this.getNombreDeContacts(); i++)
 		{
 			try
 			{
-			if (!(this.getContact(i).equals(((Repertoire) o).getContact(i))))
+			if (!(this.getContact(i).equals(((RepertoireTableau) o).getContact(i))))
 				return false;
 			}
 			catch(PositionIncorrecteExeption e)

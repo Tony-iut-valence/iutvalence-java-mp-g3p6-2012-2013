@@ -18,7 +18,7 @@ public class TestRepertoire
 	 */
 	public static void main(String[] args)
 	{
-		Repertoire rep = new Repertoire("Repertoire de Paul");
+		RepertoireTableau rep = new RepertoireTableau("Repertoire de Paul");
 		System.out.println(rep.toString());
 		try
 		{

@@ -18,7 +18,7 @@ public class TestContact
 	{
 		Contact paul = new Contact("paul", "12:36:21:45:69");
 		System.out.println(paul.getNom());
-		System.out.println(paul.getAdresseMac());
+		System.out.println(paul.getAdresseIP());
 		System.out.println(paul.toString());
 	}
 
