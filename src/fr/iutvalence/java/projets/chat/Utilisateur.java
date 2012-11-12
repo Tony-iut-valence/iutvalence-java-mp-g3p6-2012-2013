@@ -117,8 +117,9 @@ public class Utilisateur
 		this.mdp = mdp;
 	}
 
-	// FIXME dire en quoi 2 utilisateurs sont égaux
+	// FIXME(FIXED) dire en quoi 2 utilisateurs sont égaux
 	/**
+	 * deux utilisateurs sont égaux si ils ont le même nom et le même mot de passe
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object o)

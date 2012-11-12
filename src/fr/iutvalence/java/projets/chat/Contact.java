@@ -20,6 +20,10 @@ public class Contact
 	private final String adresseMac;
 
 	/**
+	 * etat de connexion du contact(quand connecter vaut true le contact est connecté)
+	 */
+	private boolean connecter;
+	/**
 	 * Création d'un nouveau contact de nom et adresse MAC donnés.
 	 * 
 	 * @param nom
@@ -32,6 +36,7 @@ public class Contact
 	{
 		this.nom = nom;
 		this.adresseMac = adrmac;
+		this.connecter= false;
 	}
 
 	/**
@@ -54,6 +59,16 @@ public class Contact
 		return this.adresseMac;
 	}
 
+	
+	
+	/**
+	 * obtenir l'etat de connexion du contact
+	 * @return la valeur de la varriable connecter
+	 */
+	public boolean getconnecter()
+	{
+		return this.connecter;
+	}
 	/**
 	 * Redéfinition de la methode toString pour la class contact, conduit a un affichage du type: nom du contact: (nom)
 	 * adresse mac: (adr)
@@ -67,8 +82,9 @@ public class Contact
 		return result;
 	}
 
-	// FIXME dire en quoi 2 contacts sont égaux
+	// FIXME(FIXED) dire en quoi 2 contacts sont égaux 
 	/**
+	 * 2 contacts sont égaux si ils ont le même nom
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object o)
@@ -76,8 +92,6 @@ public class Contact
 		if (!(o instanceof Contact))
 			return false;
 		if (((Contact) o).getNom() != this.getNom())
-			return false;
-		if (((Contact) o).getAdresseMac() != this.getAdresseMac())
 			return false;
 		return true;
 	}

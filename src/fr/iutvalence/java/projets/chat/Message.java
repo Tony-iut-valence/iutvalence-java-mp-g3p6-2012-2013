@@ -94,8 +94,9 @@ public class Message
 		this.adresseDest = dest;
 	}
 
-	// FIXME dire en quoi 2 messages sont égaux
+	// FIXME(FIXED) dire en quoi 2 messages sont égaux
 	/**
+	 * deux messages sont égaux si ils ont le même contenu la même date et le même destinataire
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object o)

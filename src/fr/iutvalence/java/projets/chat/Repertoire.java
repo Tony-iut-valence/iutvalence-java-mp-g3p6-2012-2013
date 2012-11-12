@@ -51,14 +51,17 @@ public class Repertoire
 	}
 
 	/**
-	 * Obtenir le contact de position i
+	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
-	 * @param i
+	 * @param i  
 	 * @return le contact de position i
+	 * @throws PositionIncorrecteExeption   
 	 */
-	// FIXME gérer les débordements avec une exception
-	public Contact getContact(int i)
+	// FIXME(FIXED) gérer les débordements avec une exception
+	public Contact getContact(int i)throws PositionIncorrecteExeption
 	{
+		if(i>this.nombreDeContacts)
+			throw new PositionIncorrecteExeption();
 		return this.contacts[i];
 	}
 
@@ -135,8 +138,8 @@ public class Repertoire
 	 * @return l'adresse mac correspondant au nom
 	 * 
 	 */
-	// FIXME si c'est une méthode pour rechercher un contact par nom, il faut la renommer 
-	public Contact rechercheAdresseContact(String nom)
+	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par nom, il faut la renommer 
+	public Contact rechercheAdresseContactParNom(String nom)
 	{
 		int i = 0;
 
@@ -162,8 +165,8 @@ public class Repertoire
 	 * @return le nom associe a l'adresse mac
 	 * 
 	 */
-	// FIXME si c'est une méthode pour rechercher un contact par adresse MAC, il faut la renommer
-	public Contact rechercheNomContact(String adrmac)
+	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par adresse MAC, il faut la renommer
+	public Contact rechercheNomContactParAdresse(String adrmac)
 	{
 		int i = 0;
 		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseMac()).compareTo(adrmac) != 0))
@@ -246,8 +249,16 @@ public class Repertoire
 			return false;
 		for (int i = 0; i < this.getNombreDeContacts(); i++)
 		{
+			try
+			{
 			if (!(this.getContact(i).equals(((Repertoire) o).getContact(i))))
 				return false;
+			}
+			catch(PositionIncorrecteExeption e)
+			{
+				return false;
+			}
+			
 		}
 		return true;
 	}
