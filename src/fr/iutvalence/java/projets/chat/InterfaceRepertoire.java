@@ -12,12 +12,14 @@ public interface InterfaceRepertoire
 	 * @return le nombre de contacts du repertoire
 	 */
 	public int getNombreDeContacts();
+	
 	/**
 	 * Obtenir le nom du repertoire
 	 * 
 	 * @return le nom du repertoire
 	 */
 	public String getNom();
+	
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
@@ -25,7 +27,9 @@ public interface InterfaceRepertoire
 	 * @return le contact de position i
 	 * @throws PositionIncorrecteExeption   
 	 */
-	public Contact getContact(int i)throws PositionIncorrecteExeption;
+	
+	public Contact getContact(int i) throws PositionIncorrecteExeption;
+	
 	/**
 	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac peut
 	 * renvoyer une erreur en cas de saisie incorrect
@@ -34,7 +38,7 @@ public interface InterfaceRepertoire
 	 * @param adrmac
 	 * @throws NomIncorrectException
 	 * 
-	 */
+	 */	
 	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException;
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
@@ -44,6 +48,7 @@ public interface InterfaceRepertoire
 	 * 
 	 */
 	public Contact rechercheAdresseContactParNom(String nom);
+	
 	/**
 	 * recherche le nom du contact d'adresse adrmac renvoi null si l'adresse n'appartien pas au repertoire
 	 * 
@@ -52,6 +57,7 @@ public interface InterfaceRepertoire
 	 * 
 	 */
 	public Contact rechercheNomContactParAdresse(String adrmac);
+	
 	/**
 	 * supprime le contact de nom nom tout en conservant l'ordre renvoi une exceptionsi le contact n'est pas trouvé
 	 * 
@@ -60,6 +66,4 @@ public interface InterfaceRepertoire
 	 * 
 	 */
 	public void supprimeContact(String nom) throws NomIncorrectException;
-	
-
 }

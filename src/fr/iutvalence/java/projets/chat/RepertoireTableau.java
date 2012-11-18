@@ -53,14 +53,13 @@ public class RepertoireTableau implements InterfaceRepertoire
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
-	 * @param i  
+	 * @param i
 	 * @return le contact de position i
-	 * @throws PositionIncorrecteExeption   
+	 * @throws PositionIncorrecteExeption
 	 */
-	// FIXME(FIXED) gérer les débordements avec une exception
-	public Contact getContact(int i)throws PositionIncorrecteExeption
+	public Contact getContact(int i) throws PositionIncorrecteExeption
 	{
-		if(i>this.nombreDeContacts)
+		if (i > this.nombreDeContacts)
 			throw new PositionIncorrecteExeption();
 		return this.contacts[i];
 	}
@@ -89,6 +88,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
+	// Gérer le dépassement de capacité du tableau via un exception
 	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException
 	{
 		Contact cont1, cont2;
@@ -97,7 +97,6 @@ public class RepertoireTableau implements InterfaceRepertoire
 		while ((i < this.nombreDeContacts) && ((this.contacts[i].getNom()).compareTo(nom) < 0))
 		{
 			i = i + 1;
-
 		}
 		if (i == this.nombreDeContacts)
 		{
@@ -138,7 +137,6 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return l'adresse mac correspondant au nom
 	 * 
 	 */
-	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par nom, il faut la renommer 
 	public Contact rechercheAdresseContactParNom(String nom)
 	{
 		int i = 0;
@@ -165,7 +163,6 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par adresse MAC, il faut la renommer
 	public Contact rechercheNomContactParAdresse(String adrIP)
 	{
 		int i = 0;
@@ -216,7 +213,6 @@ public class RepertoireTableau implements InterfaceRepertoire
 
 	}
 
-
 	/**
 	 * Redéfinition de la methode toString pour la class Repertoire, conduit a un affichage du type: nombre de contact:
 	 * (nombreDeContat) contenu de la table: contact(0) nom du contact: (nom 0) adresse mac: (adr 0) | V
@@ -251,14 +247,14 @@ public class RepertoireTableau implements InterfaceRepertoire
 		{
 			try
 			{
-			if (!(this.getContact(i).equals(((RepertoireTableau) o).getContact(i))))
-				return false;
+				if (!(this.getContact(i).equals(((RepertoireTableau) o).getContact(i))))
+					return false;
 			}
-			catch(PositionIncorrecteExeption e)
+			catch (PositionIncorrecteExeption e)
 			{
 				return false;
 			}
-			
+
 		}
 		return true;
 	}

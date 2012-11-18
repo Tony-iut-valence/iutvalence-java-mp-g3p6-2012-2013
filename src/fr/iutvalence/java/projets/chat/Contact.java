@@ -83,8 +83,7 @@ public class Contact
 		result=result+"connecter"+this.connecter+"\n";
 		return result;
 	}
-
-	// FIXME(FIXED) dire en quoi 2 contacts sont égaux 
+ 
 	/**
 	 * 2 contacts sont égaux si ils ont le même nom et la même adresse IP
 	 * @see java.lang.Object#equals(java.lang.Object)
