@@ -28,6 +28,11 @@ public class TestRepertoire
 		{
 			System.out.println("erreur a l'ajout");
 		}
+		catch (CapaciteDepasseeException e)
+		{
+			System.out.println("erreur a l'ajout");
+		}
+		
 		finally
 		{
 		}
@@ -39,6 +44,11 @@ public class TestRepertoire
 		{
 			System.out.println("erreur a l'ajout");
 		}
+		catch (CapaciteDepasseeException e)
+		{
+			System.out.println("erreur a l'ajout");
+		}
+		
 		finally
 		{
 		}
@@ -47,6 +57,11 @@ public class TestRepertoire
 			System.out.println("test de l'ajout d'une personne déjà présente:\n");
 			rep.ajouterContact("Gertrude", "23:14:25:14:33");
 		}
+		catch (CapaciteDepasseeException e)
+		{
+			System.out.println("erreur a l'ajout");
+		}
+		
 		catch (NomIncorrectException e)
 		{
 			System.out.println("*********erreur a l'ajout*********\n\n");

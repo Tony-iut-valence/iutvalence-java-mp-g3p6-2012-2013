@@ -60,14 +60,6 @@ public interface InterfaceAnnuaire
 	/**
 	 * @return le nombre de contacts du repertoire
 	 */
-	public int ploooooooooooo (Contact c)
-	{
-		return 0;
-		
-		
-	}
-	
-	
 	
 	
 	
