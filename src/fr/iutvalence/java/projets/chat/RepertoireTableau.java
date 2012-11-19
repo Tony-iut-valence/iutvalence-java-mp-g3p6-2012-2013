@@ -89,46 +89,51 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException
+	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException, CapaciteDepasseeException
 	{
 		Contact cont1, cont2;
 		int i = 0;
-
-		while ((i < this.nombreDeContacts) && ((this.contacts[i].getNom()).compareTo(nom) < 0))
+		if (this.nombreDeContacts==CONTACTS_MAXIMUM)
 		{
-			i = i + 1;
-
-		}
-		if (i == this.nombreDeContacts)
-		{
-			this.contacts[i] = new Contact(nom, adrIP);
-			this.nombreDeContacts = this.nombreDeContacts + 1;
+			throw new CapaciteDepasseeException();
 		}
 		else
 		{
-			if ((this.contacts[i].getNom()).compareTo(nom) == 0)
+			while ((i < this.nombreDeContacts) && ((this.contacts[i].getNom()).compareTo(nom) < 0))
 			{
-				throw new NomIncorrectException();
-			}
-
-			else
-			{
-				cont1 = this.contacts[i];
-				this.contacts[i] = new Contact(nom, adrIP);
 				i = i + 1;
-
-				while (i <= this.nombreDeContacts)
-				{
-					cont2 = this.contacts[i];
-					this.contacts[i] = cont1;
-					cont1 = cont2;
-					i = i + 1;
-
-				}
+	
+			}
+			if (i == this.nombreDeContacts)
+			{
+				this.contacts[i] = new Contact(nom, adrIP);
 				this.nombreDeContacts = this.nombreDeContacts + 1;
 			}
+			else
+			{
+				if ((this.contacts[i].getNom()).compareTo(nom) == 0)
+				{
+					throw new NomIncorrectException();
+				}
+	
+				else
+				{
+					cont1 = this.contacts[i];
+					this.contacts[i] = new Contact(nom, adrIP);
+					i = i + 1;
+	
+					while (i <= this.nombreDeContacts)
+					{
+						cont2 = this.contacts[i];
+						this.contacts[i] = cont1;
+						cont1 = cont2;
+						i = i + 1;
+	
+					}
+					this.nombreDeContacts = this.nombreDeContacts + 1;
+				}
+			}
 		}
-
 	}
 
 	/**

@@ -35,7 +35,7 @@ public interface InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException;
+	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException, CapaciteDepasseeException;
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
 	 * 
