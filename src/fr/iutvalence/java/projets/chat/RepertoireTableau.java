@@ -29,7 +29,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * nombre de contacts
 	 */
 	private int nombreDeContacts;
-	
+
 	/**
 	 * Constructeur de repertoire avec pour paramètre le nom du repertoire met par defaut le nombre de contact a 0 et
 	 * initialise la valeur de contacts avec un nouveau tableau de contact
@@ -44,7 +44,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 		this.contacts = new Contact[CONTACTS_MAXIMUM];
 
 	}
-	
+
 	/**
 	 * Obtenir le nombre de contacts du repertoire
 	 * 
@@ -72,15 +72,12 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return le contact de position i
 	 * @throws PositionIncorrecteExeption
 	 */
-	// FIXME(FIXED) gérer les débordements avec une exception
 	public Contact getContact(int i) throws PositionIncorrecteExeption
 	{
 		if (i > this.nombreDeContacts)
 			throw new PositionIncorrecteExeption();
 		return this.contacts[i];
 	}
-
-	
 
 	/**
 	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac peut
@@ -91,49 +88,49 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
+
 	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException, CapaciteDepasseeException
+
 	{
 		Contact cont1, cont2;
-		int i = 0;
 		if (this.nombreDeContacts == CONTACTS_MAXIMUM)
 		{
+
 			throw new CapaciteDepasseeException();
+		}
+		int i = 0;
+		while ((i < this.nombreDeContacts) && ((this.contacts[i].getNom()).compareTo(nom) < 0))
+		{
+			i = i + 1;
+
+		}
+		if (i == this.nombreDeContacts)
+		{
+			this.contacts[i] = new Contact(nom, adrIP);
+			this.nombreDeContacts = this.nombreDeContacts + 1;
 		}
 		else
 		{
-			while ((i < this.nombreDeContacts) && ((this.contacts[i].getNom()).compareTo(nom) < 0))
+			if ((this.contacts[i].getNom()).compareTo(nom) == 0)
 			{
-				i = i + 1;
+				throw new NomIncorrectException();
+			}
 
-			}
-			if (i == this.nombreDeContacts)
-			{
-				this.contacts[i] = new Contact(nom, adrIP);
-				this.nombreDeContacts = this.nombreDeContacts + 1;
-			}
 			else
 			{
-				if ((this.contacts[i].getNom()).compareTo(nom) == 0)
-				{
-					throw new NomIncorrectException();
-				}
+				cont1 = this.contacts[i];
+				this.contacts[i] = new Contact(nom, adrIP);
+				i = i + 1;
 
-				else
+				while (i <= this.nombreDeContacts)
 				{
-					cont1 = this.contacts[i];
-					this.contacts[i] = new Contact(nom, adrIP);
+					cont2 = this.contacts[i];
+					this.contacts[i] = cont1;
+					cont1 = cont2;
 					i = i + 1;
 
-					while (i <= this.nombreDeContacts)
-					{
-						cont2 = this.contacts[i];
-						this.contacts[i] = cont1;
-						cont1 = cont2;
-						i = i + 1;
-
-					}
-					this.nombreDeContacts = this.nombreDeContacts + 1;
 				}
+				this.nombreDeContacts = this.nombreDeContacts + 1;
 			}
 		}
 	}
@@ -145,7 +142,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return l'adresse mac correspondant au nom
 	 * 
 	 */
-	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par nom, il faut la renommer
+
 	public Contact rechercheContactParNom(String nom)
 	{
 		int i = 0;
@@ -172,7 +169,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	// FIXME(FIXED) si c'est une méthode pour rechercher un contact par adresse MAC, il faut la renommer
+
 	public Contact rechercheContactParAdresse(String adrIP)
 	{
 		int i = 0;
