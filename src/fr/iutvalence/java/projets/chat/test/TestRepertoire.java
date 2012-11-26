@@ -18,6 +18,7 @@ public class TestRepertoire
 	 */
 	public static void main(String[] args)
 	{
+		boolean suppr;
 		RepertoireTableau rep = new RepertoireTableau("Repertoire de Paul");
 		System.out.println(rep.toString());
 		try
@@ -70,18 +71,10 @@ public class TestRepertoire
 		{
 			System.out.println(rep.toString());
 		}
-		try
-		{
-			rep.supprimeContact("Paul");
-		}
-		catch (NomIncorrectException e)
-		{
-			System.out.println("*********erreur a la suppression*********\n\n");
-		}
-		finally
-		{
-			System.out.println(rep.toString());
-		}
+			suppr=rep.supprimeContactParNom("Paul");
+			if(!suppr)
+				System.out.println("\nla suppression a échoué\n");
+		
 		System.out.println("\n" + "recherche de l'adresse:\n" + rep.rechercheContactParNom("Gertrude") + "\n");
 		System.out.println("\n" + "recherche du nom:\n" + rep.rechercheContactParAdresse("23:14:25:14:33") + "\n");
 

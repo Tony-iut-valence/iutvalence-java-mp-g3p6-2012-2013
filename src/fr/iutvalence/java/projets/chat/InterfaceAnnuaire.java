@@ -7,9 +7,9 @@ package fr.iutvalence.java.projets.chat;
 public interface InterfaceAnnuaire
 {	
 	/**
-	 * Obtenir le nombre de contacts du repertoire
+	 * @return le nombre d'utilisateurs du repertoire
 	 * 
-	 * @return le nombre de contacts du repertoire
+	 * @return le nombre d'utilisateurs du repertoire
 	 */
 	public int getNombreUtilisateurs();
 	/**
@@ -19,7 +19,7 @@ public interface InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void supprimeUtilisateur(String nom) throws NomIncorrectException;
+	public boolean supprimeUtilisateur(String nom);
 	
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
@@ -28,7 +28,7 @@ public interface InterfaceAnnuaire
 	 * @return l'adresse IP correspondant au nom
 	 * 
 	 */
-	public Utilisateur rechercheAdresseUtilisateurParNom(String nom);
+	public Utilisateur rechercheUtilisateurParNom(String nom);
 	/**
 	 * recherche le nom du contact d'adresse adrIP renvoi null si l'adresse n'appartien pas au repertoire
 	 * 
@@ -36,7 +36,7 @@ public interface InterfaceAnnuaire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Utilisateur rechercheNomUtilisateurParAdresse(String adrIP);
+	public Utilisateur rechercheUtilisateurParAdresse(String adrIP);
 	
 	
 	/**
@@ -48,7 +48,7 @@ public interface InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException;
+	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException,CapaciteDepasseeException;
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
@@ -57,10 +57,7 @@ public interface InterfaceAnnuaire
 	 * @throws PositionIncorrecteExeption   
 	 */
 	public Utilisateur getUtilisateur(int i)throws PositionIncorrecteExeption;
-	/**
-	 * @return le nombre de contacts du repertoire
-	 */
-	
+
 	
 	
 	
