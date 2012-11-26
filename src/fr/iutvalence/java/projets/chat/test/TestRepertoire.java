@@ -82,8 +82,8 @@ public class TestRepertoire
 		{
 			System.out.println(rep.toString());
 		}
-		System.out.println("\n" + "recherche de l'adresse:\n" + rep.rechercheAdresseContactParNom("Gertrude") + "\n");
-		System.out.println("\n" + "recherche du nom:\n" + rep.rechercheNomContactParAdresse("23:14:25:14:33") + "\n");
+		System.out.println("\n" + "recherche de l'adresse:\n" + rep.rechercheContactParNom("Gertrude") + "\n");
+		System.out.println("\n" + "recherche du nom:\n" + rep.rechercheContactParAdresse("23:14:25:14:33") + "\n");
 
 	}
 

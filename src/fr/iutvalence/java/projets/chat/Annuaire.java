@@ -4,7 +4,7 @@ package fr.iutvalence.java.projets.chat;
  * @author chizatto
  *
  */
-public class Annuaire extends RepertoireTableau
+public class Annuaire implements InterfaceAnnuaire
 {
 	
 }

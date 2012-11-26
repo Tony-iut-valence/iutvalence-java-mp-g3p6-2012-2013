@@ -31,11 +31,11 @@ public interface InterfaceRepertoire
 	 * renvoyer une erreur en cas de saisie incorrect
 	 * 
 	 * @param nom
-	 * @param adrmac
+	 * @param adrIP
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException, CapaciteDepasseeException;
+	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException, CapaciteDepasseeException;
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
 	 * 
@@ -43,15 +43,15 @@ public interface InterfaceRepertoire
 	 * @return l'adresse mac correspondant au nom
 	 * 
 	 */
-	public Contact rechercheAdresseContactParNom(String nom);
+	public Contact rechercheContactParNom(String nom);
 	/**
-	 * recherche le nom du contact d'adresse adrmac renvoi null si l'adresse n'appartien pas au repertoire
+	 * recherche le nom du contact d'adresse adrIP renvoi null si l'adresse n'appartien pas au repertoire
 	 * 
-	 * @param adrmac
-	 * @return le nom associe a l'adresse mac
+	 * @param adrIP
+	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Contact rechercheNomContactParAdresse(String adrmac);
+	public Contact rechercheContactParAdresse(String adrIP);
 	/**
 	 * supprime le contact de nom nom tout en conservant l'ordre renvoi une exceptionsi le contact n'est pas trouvé
 	 * 
@@ -59,7 +59,6 @@ public interface InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void supprimeContact(String nom) throws NomIncorrectException;
-	
+	public boolean supprimeContactParNom(String nom);
 
 }

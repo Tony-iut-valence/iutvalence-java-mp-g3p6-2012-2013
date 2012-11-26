@@ -11,7 +11,7 @@ public interface InterfaceAnnuaire
 	 * 
 	 * @return le nombre de contacts du repertoire
 	 */
-	public int getNombreDeContacts();
+	public int getNombreUtilisateurs();
 	/**
 	 * supprime le contact de nom nom tout en conservant l'ordre renvoi une exceptionsi le contact n'est pas trouvé
 	 * 
@@ -19,36 +19,36 @@ public interface InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void supprimeContact(String nom) throws NomIncorrectException;
+	public void supprimeUtilisateur(String nom) throws NomIncorrectException;
 	
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
 	 * 
 	 * @param nom
-	 * @return l'adresse mac correspondant au nom
+	 * @return l'adresse IP correspondant au nom
 	 * 
 	 */
-	public Contact rechercheAdresseContactParNom(String nom);
+	public Utilisateur rechercheAdresseUtilisateurParNom(String nom);
 	/**
-	 * recherche le nom du contact d'adresse adrmac renvoi null si l'adresse n'appartien pas au repertoire
+	 * recherche le nom du contact d'adresse adrIP renvoi null si l'adresse n'appartien pas au repertoire
 	 * 
-	 * @param adrmac
-	 * @return le nom associe a l'adresse mac
+	 * @param adrIP
+	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Contact rechercheNomContactParAdresse(String adrmac);
+	public Utilisateur rechercheNomUtilisateurParAdresse(String adrIP);
 	
 	
 	/**
-	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse mac peut
+	 * ajoute en conservant l'ordre un contact dans le repertoire courant a partir du nom et de l'adresse IP peut
 	 * renvoyer une erreur en cas de saisie incorrect
 	 * 
 	 * @param nom
-	 * @param adrmac
+	 * @param adrIP
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrmac) throws NomIncorrectException;
+	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException;
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
@@ -56,7 +56,7 @@ public interface InterfaceAnnuaire
 	 * @return le contact de position i
 	 * @throws PositionIncorrecteExeption   
 	 */
-	public Contact getContact(int i)throws PositionIncorrecteExeption;
+	public Utilisateur getUtilisateur(int i)throws PositionIncorrecteExeption;
 	/**
 	 * @return le nombre de contacts du repertoire
 	 */
