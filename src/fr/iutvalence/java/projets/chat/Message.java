@@ -3,7 +3,7 @@ package fr.iutvalence.java.projets.chat;
 import java.util.Calendar;
 
 /**
- * class qui represente un message, constitué d'un contenu, d'une date et d'une adresse de destination
+ * classe qui represente un message, constitué d'un contenu, d'une date et d'une adresse de destination
  * 
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
  */
@@ -94,7 +94,6 @@ public class Message
 		this.adresseDest = dest;
 	}
 
-	// FIXME(FIXED) dire en quoi 2 messages sont égaux
 	/**
 	 * deux messages sont égaux si ils ont le même contenu la même date et le même destinataire
 	 * @see java.lang.Object#equals(java.lang.Object)

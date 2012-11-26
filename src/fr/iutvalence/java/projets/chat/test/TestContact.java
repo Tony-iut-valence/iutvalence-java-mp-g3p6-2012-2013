@@ -14,6 +14,7 @@ public class TestContact
 	/**
 	 * @param args
 	 */
+	//FIXME ce n'est pas un main ...
 	public static void main()
 	{
 		Contact paul = new Contact("paul", "12:36:21:45:69");
