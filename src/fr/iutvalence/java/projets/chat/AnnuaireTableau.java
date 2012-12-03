@@ -1,10 +1,10 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 /**
  * @author chizatto
  *
  */
-public class Annuaire implements InterfaceAnnuaire
+public class AnnuaireTableau implements InterfaceAnnuaire
 {
 	private final static int UTILISATEUR_MAXIMUM = 200;
 	private Utilisateur[] utilisateurs;
@@ -48,6 +48,7 @@ public class Annuaire implements InterfaceAnnuaire
 			i=i+1;
 		}
 		this.nombreUtilisateur=this.nombreUtilisateur-1;
+		return true;
 	}
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
@@ -76,6 +77,14 @@ public class Annuaire implements InterfaceAnnuaire
 	 */
 	public Utilisateur rechercheUtilisateurParAdresse(String adrIP)
 	{
+		int i=0;
+		while((i<(this.nombreUtilisateur))&&(this.utilisateurs[i].getAdresseIP()!=adrIP))
+		{
+			i=i+1;
+		}
+		if(i<this.nombreUtilisateur)
+			return this.utilisateurs[i];
+		return null;
 		
 	}
 	
@@ -92,6 +101,7 @@ public class Annuaire implements InterfaceAnnuaire
 	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException,CapaciteDepasseeException
 	{
 		
+		
 	}
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
@@ -102,7 +112,9 @@ public class Annuaire implements InterfaceAnnuaire
 	 */
 	public Utilisateur getUtilisateur(int i)throws PositionIncorrecteExeption
 	{
-		
+		if(i<this.nombreUtilisateur)
+			return this.utilisateurs[i];
+		throw new PositionIncorrecteExeption();
 	}
 	
 }

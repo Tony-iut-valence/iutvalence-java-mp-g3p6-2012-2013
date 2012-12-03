@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 /**
  * class qui represente un utilisateur, il ce constitue d'un nom et d'un mot de passe
  * 
@@ -30,7 +30,7 @@ public class Utilisateur
 	/**
 	 * adresse de l'utilisateur
 	 */
-	private String adresseIP;
+	private InetAddress adresseIP;
 
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe innitialise rep avec un
@@ -44,7 +44,7 @@ public class Utilisateur
 	{
 		this.nomUtilisateur = nom;
 		this.mdp = mdp;
-
+		this.adresseIP=null;//TO DO
 		this.rep = new RepertoireTableau(REPERTOIRE_PAR_DEFAUT);
 	}
 
