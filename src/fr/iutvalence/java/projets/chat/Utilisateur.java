@@ -28,6 +28,7 @@ public class Utilisateur
 	private RepertoireTableau rep;
 	
 
+	private DatagramSocket dataS;
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe innitialise rep avec un
 	 * nouveau repertoire de nom: REPERTOIRE_PAR_DEFAUT
@@ -38,20 +39,25 @@ public class Utilisateur
 	 */
 	public Utilisateur(String nom, String mdp)
 	{
-		InetSocketAddress adrr;
+		try
+		{
+		this.dataS=new DatagramSocket();
+		}
+		catch(SocketException e)
+		{
+			
+		}
+		InetSocketAddress addr;
 		this.utilisateur =new Contact(nom,null);
 		this.mdp = mdp;
 		try
 		{
-		adrr=new InetSocketAddress(InetAddress.getLocalHost(),0);
-		this.utilisateur.setSocketAddr(adrr);
+		addr=new InetSocketAddress(InetAddress.getLocalHost(),0);
+		this.utilisateur.setSocketAddr(addr);
 		}
 		catch(UnknownHostException e)
 		{
 			System.out.println("erreur:l'adresse IP na pas pu être trouvé");
-		}
-		finally
-		{
 		}
 		this.rep = new RepertoireTableau(REPERTOIRE_PAR_DEFAUT);
 	}
