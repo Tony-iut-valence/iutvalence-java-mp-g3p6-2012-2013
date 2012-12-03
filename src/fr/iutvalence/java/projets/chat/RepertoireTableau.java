@@ -169,7 +169,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-
+	// FIXME utiliser && et || pour la combinaison de conditions (et pas & ou |)
 	public Contact rechercheContactParAdresse(InetSocketAddress adrIP)
 	{
 		int i = 0;
@@ -237,6 +237,8 @@ public class RepertoireTableau implements InterfaceRepertoire
 	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	// FIXME attention : il faut redéfinir également hashCode !
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public boolean equals(Object o)
 	{
 		if (!(o instanceof RepertoireTableau))

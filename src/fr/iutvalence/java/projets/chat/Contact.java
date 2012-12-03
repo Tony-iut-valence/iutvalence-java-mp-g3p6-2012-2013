@@ -90,6 +90,9 @@ public class Contact
 	 * 2 contacts sont égaux si ils ont le même nom et la même adresse IP
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	
+	// FIXME attention : il faut redéfinir également hashCode !
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public boolean equals(Object o)
 	{
 		if (!(o instanceof Contact))

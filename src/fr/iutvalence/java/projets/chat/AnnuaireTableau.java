@@ -33,6 +33,7 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public boolean supprimeUtilisateur(String nom)
 	{
 		int i=0;
@@ -57,6 +58,7 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 	 * @return l'adresse IP correspondant au nom
 	 * 
 	 */
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public Utilisateur rechercheUtilisateurParNom(String nom)
 	{
 		int i=0;
@@ -103,6 +105,7 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 		int i=0;
 		if(this.nombreUtilisateur==UTILISATEUR_MAXIMUM)
 			throw new CapaciteDepasseeException();
+		// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 		while((i<this.nombreUtilisateur)&&(this.utilisateurs[i].getNomUtilisateur()!=utili.getNomUtilisateur()))
 		{
 			i=i+1;

@@ -158,6 +158,8 @@ public class Utilisateur
 	 * deux utilisateurs sont égaux si ils ont le même nom et le même mot de passe
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	// FIXME attention : il faut redéfinir également hashCode !
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public boolean equals(Object o)
 	{
 		if (!(o instanceof Utilisateur))

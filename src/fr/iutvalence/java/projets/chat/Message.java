@@ -98,6 +98,8 @@ public class Message
 	 * deux messages sont égaux si ils ont le même contenu la même date et le même destinataire
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	// FIXME attention : il faut redéfinir également hashCode !
+	// FIXME ne pas comparer les chaines avec == ou !=, ça ne marche pas !
 	public boolean equals(Object o)
 	{
 		if (!(o instanceof Message))
