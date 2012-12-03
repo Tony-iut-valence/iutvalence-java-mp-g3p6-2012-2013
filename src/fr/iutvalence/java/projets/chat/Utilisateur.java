@@ -13,9 +13,9 @@ public class Utilisateur
 	final static String REPERTOIRE_PAR_DEFAUT = "repertoire par defaut";
 
 	/**
-	 * nom de l'utilisateur
+	 * l'utilisateur
 	 */
-	private final String nomUtilisateur;
+	private Contact utilisateur;
 
 	/**
 	 * code de l'utilisateur
@@ -27,10 +27,6 @@ public class Utilisateur
 	 */
 	private RepertoireTableau rep;
 	
-	/**
-	 * adresse de l'utilisateur
-	 */
-	private InetAddress adresseIP;
 
 	/**
 	 * constructeur de la class utilisateur prenant en paramètre le nom et le mot de passe innitialise rep avec un
@@ -42,11 +38,13 @@ public class Utilisateur
 	 */
 	public Utilisateur(String nom, String mdp)
 	{
-		this.nomUtilisateur = nom;
+		InetSocketAddress adrr;
+		this.utilisateur =new Contact(nom,null);
 		this.mdp = mdp;
 		try
 		{
-		this.adresseIP=InetAddress.getLocalHost();
+		adrr=new InetSocketAddress(InetAddress.getLocalHost(),0);
+		this.utilisateur.setSocketAddr(adrr);
 		}
 		catch(UnknownHostException e)
 		{
@@ -66,7 +64,7 @@ public class Utilisateur
 	 */
 	public String toString()
 	{
-		String result = "nom de l'utilisateur: " + this.nomUtilisateur + "\n";
+		String result = "nom de l'utilisateur: " + this.getNomUtilisateur() + "\n";
 		result = result + "Mot de passe: " + this.mdp + "\n";
 		return result;
 	}
@@ -78,7 +76,7 @@ public class Utilisateur
 	 */
 	public String getNomUtilisateur()
 	{
-		return this.nomUtilisateur;
+		return this.utilisateur.getNom();
 	}
 
 	/**
@@ -95,9 +93,9 @@ public class Utilisateur
 	 * 
 	 * @return adresseIP
 	 */
-	public InetAddress getAdresseIP()
+	public InetSocketAddress getAdresseIP()
 	{
-		return this.adresseIP;
+		return this.utilisateur.getsocketAddr();
 	}
 	
 	/**
@@ -105,9 +103,9 @@ public class Utilisateur
 	 * @param ip 
 	 * 
 	 */
-	public void setAdresseIP(InetAddress ip)
+	public void setAdresseIP(InetSocketAddress ip)
 	{
-		 this.adresseIP=ip;
+		 this.utilisateur.setSocketAddr(ip);
 	}
 	/**
 	 * renvoi le repertoire de l'utilisateur courant

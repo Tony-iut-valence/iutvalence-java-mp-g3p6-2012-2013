@@ -9,6 +9,7 @@ import java.net.*;
 public class Contact
 {
 
+	
 	/**
 	 * nom du contact
 	 */
@@ -17,12 +18,14 @@ public class Contact
 	/**
 	 * adresse mac du contact
 	 */
-	private final InetAddress adresseIP;
+	//private final InetAddress adresseIP;
 
 	/**
 	 * etat de connexion du contact(quand connecter vaut true le contact est connecté)
 	 */
 	private boolean connecter;
+	
+	private InetSocketAddress socketAddr;
 	/**
 	 * Création d'un nouveau contact de nom et adresse MAC donnés.
 	 * 
@@ -32,11 +35,11 @@ public class Contact
 	 *            l'adresse MAC du contact
 	 * 
 	 */
-	public Contact(String nom, InetAddress adrIP)
+	public Contact(String nom, InetSocketAddress adrIP)
 	{
 		this.nom = nom;
-		this.adresseIP = adrIP;
 		this.connecter= false;
+		this.socketAddr= adrIP ;
 	}
 
 	/**
@@ -49,17 +52,16 @@ public class Contact
 		return this.nom;
 	}
 
-	/**
-	 * Obtenir l'adresse IP du contact
-	 * 
-	 * @return l'adresse IP du contact
-	 */
-	public InetAddress getAdresseIP()
-	{
-		return this.adresseIP;
-	}
 
+	public InetSocketAddress getsocketAddr()
+	{
+		return this.socketAddr;
+	}
 	
+	public void setSocketAddr(InetSocketAddress adrr)
+	{
+		this.socketAddr=adrr;
+	}
 	
 	/**
 	 * obtenir l'etat de connexion du contact
@@ -79,7 +81,7 @@ public class Contact
 	public String toString()
 	{
 		String result = "nom du contact: " + this.nom + "\n";
-		result = result + "adresse IP: " + this.adresseIP + "\n";
+		result = result + "adresse IP: " + this.socketAddr.toString() + "\n";
 		result=result+"connecter"+this.connecter+"\n";
 		return result;
 	}
@@ -94,7 +96,7 @@ public class Contact
 			return false;
 		if (((Contact) o).getNom() != this.getNom())
 			return false;
-		if (((Contact) o).getAdresseIP() != this.getAdresseIP())
+		if (((Contact) o).getsocketAddr() != this.getsocketAddr())
 			return false;
 		return true;
 	}

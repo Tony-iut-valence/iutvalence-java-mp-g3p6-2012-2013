@@ -2,7 +2,7 @@ package fr.iutvalence.java.projets.chat;
 import java.net.*;
 /*import java.util.*;*/
 
-/**
+/** 
  * class qui represente un repertoire -> ensemble de contacts
  * 
  * @author Tony (Tony-iut-valence <tony.chizat@iut-valence.fr>)
@@ -89,7 +89,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * 
 	 */
 
-	public void ajouterContact(String nom, InetAddress adrIP) throws NomIncorrectException, CapaciteDepasseeException
+	public void ajouterContact(String nom, InetSocketAddress adrIP) throws NomIncorrectException, CapaciteDepasseeException
 
 	{
 		Contact cont1, cont2;
@@ -170,10 +170,10 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * 
 	 */
 
-	public Contact rechercheContactParAdresse(InetAddress adrIP)
+	public Contact rechercheContactParAdresse(InetSocketAddress adrIP)
 	{
 		int i = 0;
-		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseIP()).equals(adrIP)))
+		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getsocketAddr()).equals(adrIP)))
 		{
 			i = i + 1;
 		}

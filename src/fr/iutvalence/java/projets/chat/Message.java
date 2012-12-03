@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 import java.util.Calendar;
 
 /**
@@ -23,7 +23,7 @@ public class Message
 	/**
 	 * destination du message
 	 */
-	private String adresseDest;
+	private InetAddress adresseDest;
 
 	/**
 	 * Constructeur de la class message prenant en paramètre le contenu et la destination et met pour valeur de date la
@@ -32,7 +32,7 @@ public class Message
 	 * @param contenu
 	 * @param dest
 	 */
-	public Message(String contenu, String dest)
+	public Message(String contenu, InetAddress dest)
 	{
 		this.contenu = contenu;
 		this.adresseDest = dest;
@@ -48,7 +48,7 @@ public class Message
 	public String toString()
 	{
 		String result = "date du message: " + this.date.getTime().toString() + "\n";
-		result = result + "destinataire: " + this.adresseDest + "\n";
+		result = result + "destinataire: " + this.adresseDest.toString() + "\n";
 		result = result + "contenu du message: " + this.contenu;
 		return result;
 	}
@@ -68,7 +68,7 @@ public class Message
 	 * 
 	 * @return le destinataire du message
 	 */
-	public String getDestinataire()
+	public InetAddress getDestinataire()
 	{
 		return this.adresseDest;
 	}
@@ -89,7 +89,7 @@ public class Message
 	 * @param dest
 	 *            nouvelle valeure pour le destinataire du message
 	 */
-	public void setAdresseDest(String dest)
+	public void setAdresseDest(InetAddress dest)
 	{
 		this.adresseDest = dest;
 	}

@@ -75,7 +75,7 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Utilisateur rechercheUtilisateurParAdresse(InetAddress adrIP)
+	public Utilisateur rechercheUtilisateurParAdresse(InetSocketAddress adrIP)
 	{
 		int i=0;
 		while((i<(this.nombreUtilisateur))&&(this.utilisateurs[i].getAdresseIP()!=adrIP))
@@ -98,10 +98,19 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException,CapaciteDepasseeException
+	public void ajouterUtilisateur(Utilisateur utili) throws NomIncorrectException,CapaciteDepasseeException
 	{
-		
-		
+		int i=0;
+		if(this.nombreUtilisateur==UTILISATEUR_MAXIMUM)
+			throw new CapaciteDepasseeException();
+		while((i<this.nombreUtilisateur)&&(this.utilisateurs[i].getNomUtilisateur()!=utili.getNomUtilisateur()))
+		{
+			i=i+1;
+		}
+		if(i==this.nombreUtilisateur)
+			this.utilisateurs[i]=utili;
+		else
+			throw new NomIncorrectException();
 	}
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact

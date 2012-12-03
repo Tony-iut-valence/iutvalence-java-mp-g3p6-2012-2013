@@ -36,7 +36,7 @@ public interface InterfaceAnnuaire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Utilisateur rechercheUtilisateurParAdresse(InetAddress adrIP);
+	public Utilisateur rechercheUtilisateurParAdresse(InetSocketAddress adrIP);
 	
 	
 	/**
@@ -48,7 +48,7 @@ public interface InterfaceAnnuaire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterUtilisateur(String nom, String adrIP) throws NomIncorrectException,CapaciteDepasseeException;
+	public void ajouterUtilisateur(Utilisateur utili) throws NomIncorrectException,CapaciteDepasseeException;
 	/**
 	 * Obtenir le contact de position i renvoi une erreur si la position est supérieur au nombre de contact
 	 * 
