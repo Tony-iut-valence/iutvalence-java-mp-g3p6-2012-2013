@@ -75,7 +75,7 @@ public class AnnuaireTableau implements InterfaceAnnuaire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Utilisateur rechercheUtilisateurParAdresse(String adrIP)
+	public Utilisateur rechercheUtilisateurParAdresse(InetAddress adrIP)
 	{
 		int i=0;
 		while((i<(this.nombreUtilisateur))&&(this.utilisateurs[i].getAdresseIP()!=adrIP))

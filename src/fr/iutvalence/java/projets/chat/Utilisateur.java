@@ -44,7 +44,17 @@ public class Utilisateur
 	{
 		this.nomUtilisateur = nom;
 		this.mdp = mdp;
-		this.adresseIP=null;//TO DO
+		try
+		{
+		this.adresseIP=InetAddress.getLocalHost();
+		}
+		catch(UnknownHostException e)
+		{
+			System.out.println("erreur:l'adresse IP na pas pu être trouvé");
+		}
+		finally
+		{
+		}
 		this.rep = new RepertoireTableau(REPERTOIRE_PAR_DEFAUT);
 	}
 
@@ -85,7 +95,7 @@ public class Utilisateur
 	 * 
 	 * @return adresseIP
 	 */
-	public String getAdresseIP()
+	public InetAddress getAdresseIP()
 	{
 		return this.adresseIP;
 	}
@@ -95,7 +105,7 @@ public class Utilisateur
 	 * @param ip 
 	 * 
 	 */
-	public void setAdresseIP(String ip)
+	public void setAdresseIP(InetAddress ip)
 	{
 		 this.adresseIP=ip;
 	}

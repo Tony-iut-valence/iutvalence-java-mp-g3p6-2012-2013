@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 /*import java.util.*;*/
 
 /**
@@ -89,7 +89,7 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * 
 	 */
 
-	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException, CapaciteDepasseeException
+	public void ajouterContact(String nom, InetAddress adrIP) throws NomIncorrectException, CapaciteDepasseeException
 
 	{
 		Contact cont1, cont2;
@@ -170,10 +170,10 @@ public class RepertoireTableau implements InterfaceRepertoire
 	 * 
 	 */
 
-	public Contact rechercheContactParAdresse(String adrIP)
+	public Contact rechercheContactParAdresse(InetAddress adrIP)
 	{
 		int i = 0;
-		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseIP()).compareTo(adrIP) != 0))
+		while ((i <= this.nombreDeContacts) & ((this.contacts[i].getAdresseIP()).equals(adrIP)))
 		{
 			i = i + 1;
 		}

@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 /**
  * @author chizatto
  *
@@ -36,7 +36,7 @@ public interface InterfaceAnnuaire
 	 * @return le nom associe a l'adresse IP
 	 * 
 	 */
-	public Utilisateur rechercheUtilisateurParAdresse(String adrIP);
+	public Utilisateur rechercheUtilisateurParAdresse(InetAddress adrIP);
 	
 	
 	/**

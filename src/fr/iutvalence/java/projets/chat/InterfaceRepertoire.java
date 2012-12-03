@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 /**
  * @author chizatto
  *
@@ -39,7 +39,7 @@ public interface InterfaceRepertoire
 	 * @throws NomIncorrectException
 	 * 
 	 */
-	public void ajouterContact(String nom, String adrIP) throws NomIncorrectException, CapaciteDepasseeException;
+	public void ajouterContact(String nom, InetAddress adrIP) throws NomIncorrectException, CapaciteDepasseeException;
 	/**
 	 * recherche l'adresse correspondant au contact de nom nom renvoi null si le contact n'est pas trouvé
 	 * 
@@ -57,7 +57,7 @@ public interface InterfaceRepertoire
 	 * 
 	 */
 
-	public Contact rechercheContactParAdresse(String adrIP);
+	public Contact rechercheContactParAdresse(InetAddress adrIP);
 
 	/**
 	 * supprime le contact de nom nom tout en conservant l'ordre renvoi une exceptionsi le contact n'est pas trouvé

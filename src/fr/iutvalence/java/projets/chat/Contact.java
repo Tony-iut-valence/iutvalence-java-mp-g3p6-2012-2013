@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.chat;
-
+import java.net.*;
 
 /**
  * class qui represente un contact, il est constitué d'un nom et d'une adresse mac
@@ -17,7 +17,7 @@ public class Contact
 	/**
 	 * adresse mac du contact
 	 */
-	private final String adresseIP;
+	private final InetAddress adresseIP;
 
 	/**
 	 * etat de connexion du contact(quand connecter vaut true le contact est connecté)
@@ -32,7 +32,7 @@ public class Contact
 	 *            l'adresse MAC du contact
 	 * 
 	 */
-	public Contact(String nom, String adrIP)
+	public Contact(String nom, InetAddress adrIP)
 	{
 		this.nom = nom;
 		this.adresseIP = adrIP;
@@ -54,7 +54,7 @@ public class Contact
 	 * 
 	 * @return l'adresse IP du contact
 	 */
-	public String getAdresseIP()
+	public InetAddress getAdresseIP()
 	{
 		return this.adresseIP;
 	}
